@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./scss/_typography.scss";
+@import "./scss/_menu.scss";
+@import "./scss/_inputs.scss";
+
+body {
+  font-family: "Inter", sans-serif;
+}

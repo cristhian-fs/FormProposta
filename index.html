@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./dist/output.css">
+  <link rel="stylesheet" href="./css/style.scss">
+
+  <script src="./js/svg-inject.min.js"></script>
+</head>
+
+<body>
+
+  <main>
+    <section class="py-16 md:py-24 lg:max-w-screen-xl lg:mx-auto">
+      <div class="flex flex-col md:flex-row items-start justify-start px-4 gap-12 md:gap-16">
+        <div class="flex flex-col items-start justify-start px-4 gap-8">
+          <h3 class="text-3xl text-[#101828] leading-[38px] font-semibold">Gere sua proposta agora mesmo</h3>
+          <p class="text-lg font-normal text-[#475467] leading-7">Use o formulário ao lado para colocar as informações essenciais para sua proposta comercial. Caso tenha alguma dúvida na utilização, sinta-se a vontade para tirar suas dúvidas nos canais abaixo.</p>
+          <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div class="flex flex-col items-start justify-start gap-3">
+              <img src="./svg/mail-01.svg" onload="SVGInject(this)" class="size-5" alt="">
+              <p class="text-lg text-[#101828] font-semibold">Email</p>
+              <p class="text-base text-[#475467]">Estamos aqui para te ajudar</p>
+              <a href="">
+                <p class="text-base text-[#6941C6] font-semibold">contato@csseasy.com.br</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-start justify-start gap-3">
+              <img src="./svg/phone.svg" onload="SVGInject(this)" class="size-5" alt="">
+              <p class="text-lg text-[#101828] font-semibold">Whatsapp</p>
+              <p class="text-base text-[#475467]">Seg-sext de 8:00 às 18:00</p>
+              <a href="">
+                <p class="text-base text-[#6941C6] font-semibold">(38) 98803-3949</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="w-full p-4 flex flex-col items-start justify-center gap-5 bg-[#F9FAFB] rounded-lg">
+          <div class="w-full">
+            <label for="clientName" class="text-sm text-[#344054] font-semibold">Nome do cliente</label>
+            <input type="text" name="username" id="clientName" class="w-full block flex-1 mt-1.5 bg-white py-2 pl-3 border-0 ring-1 ring-inset ring-[#D0D5DD] text-gray-900 placeholder:text-gray-[#667085] focus:ring-[3px] focus:ring-[#D6BBFB] sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="John Doe">
+          </div>
+
+          <div class="w-full">
+            <label for="domainURL" class="text-sm text-[#344054] font-semibold">URL do seu domínio</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] focus-within:ring-[#D6BBFB]">
+                <span class="flex select-none items-center px-3 py-2 border-r border-[#D0D5DD] text-gray-500 text-base">http://</span>
+                <input type="url" name="username" id="domainURL" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6" placeholder="www.cristhiandesigner.com">
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <label for="pageSlug" class="text-sm text-[#344054] font-semibold">Slug da sua página</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] focus-within:ring-[#D6BBFB]">
+                <span class="flex select-none items-center px-3 py-2 border-r border-[#D0D5DD] text-gray-500 text-base">/</span>
+                <input type="text" name="username" id="pageSlug" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6" placeholder="proposta-comercial">
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-full">
+            <div class="col-span-1">
+              <label for="sendDate" class="text-sm text-[#344054] font-semibold">Data de envio</label>
+              <div class="mt-2">
+                <div class="flex items-center rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] focus-within:ring-[#D6BBFB] max-w-full min-w-0 px-3">
+                  <img src="./svg/calendar.svg" class="size-5 stroke-[#667085]" onload="SVGInject(this)">
+                  <input type="text" name="username" id="sendDate" class=" border-0 bg-transparent text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6" placeholder="15 May 2024">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-span-1">
+              <label for="sendDate" class="text-sm text-[#344054] font-semibold">Data de validade</label>
+              <div class="mt-2">
+                <div class="flex items-center rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] focus-within:ring-[#D6BBFB] max-w-full sm:max-w-md min-w-0 px-3">
+                  <img src="./svg/calendar.svg" class="size-5 stroke-[#667085]" onload="SVGInject(this)">
+                  <input type="text" name="username" id="sendDate" class=" border-0 bg-transparent text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6" placeholder="25 May 2024">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="relative w-full">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-[#EAECF0]"></div>
+            </div>
+            <div class="relative flex justify-center w-full">
+              <span class="bg-[#F9FAFB] px-2 text-base text-[#475467]">Parâmetros</span>
+            </div>
+          </div>
+
+          <div class="w-full flex flex-col items-center justify-center gap-5" id="params-field">
+            <div class="w-full">
+              <label for="services" class="text-sm text-[#344054] font-semibold">Serviços</label>
+              <div class="mt-2 relative">
+                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] px-3 py-1.5 focus-within:ring-[#D6BBFB]">
+                  <span class="flex select-none items-center text-gray-500 text-base">
+                    <img src="./svg/search-lg.svg" onload="SVGInject(this)" class="size-5" alt="">
+                  </span>
+                  <input type="text" name="services" id="services" class="block flex-1 border-0 bg-transparent px-3 text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6 peer" placeholder="Adicione os serviços que serão prestados" readonly>
+                  <div id="dropdown-services" class="bg-white rounded-lg shadow-lg max-h-80 overflow-y-auto border-gray-200 absolute w-full top-full mt-2 left-0 p-4 z-10 hidden">
+                    <ul class="space-y-2">
+                      <li class="p-2 relative rounded-md transition-all hover:bg-gray-100 cursor-pointer group">
+                        <p class="text-base text-gray-900 font-medium">Landing Page</p>
+                        <img src="./svg/check.svg" onload="SVGInject(this)" class="size-5 absolute top-1/2 -translate-y-1/2 right-2 hidden group-[.is-selected]:block" alt="">
+                      </li>
+                      <li class="p-2 relative rounded-md transition-all hover:bg-gray-100 cursor-pointer group">
+                        <p class="text-base text-gray-900 font-medium">Identidade visual</p>
+                        <img src="./svg/check.svg" onload="SVGInject(this)" class="size-5 absolute top-1/2 -translate-y-1/2 right-2 hidden group-[.is-selected]:block" alt="">
+                      </li>
+                      <li class="p-2 relative rounded-md transition-all hover:bg-gray-100 cursor-pointer group">
+                        <p class="text-base text-gray-900 font-medium">Criativos para lançamento</p>
+                        <img src="./svg/check.svg" onload="SVGInject(this)" class="size-5 absolute top-1/2 -translate-y-1/2 right-2 hidden group-[.is-selected]:block" alt="">
+                      </li>
+                      <li class="p-2 relative rounded-md transition-all hover:bg-gray-100 cursor-pointer group">
+                        <p class="text-base text-gray-900 font-medium">Motion Design</p>
+                        <img src="./svg/check.svg" onload="SVGInject(this)" class="size-5 absolute top-1/2 -translate-y-1/2 right-2 hidden group-[.is-selected]:block" alt="">
+                      </li>
+                      <li class="p-2 relative rounded-md transition-all hover:bg-gray-100 cursor-pointer group">
+                        <p class="text-base text-gray-900 font-medium">UI Design</p>
+                        <img src="./svg/check.svg" onload="SVGInject(this)" class="size-5 absolute top-1/2 -translate-y-1/2 right-2 hidden group-[.is-selected]:block" alt="">
+                      </li>
+                      <li class="p-2 relative rounded-md transition-all hover:bg-gray-100 cursor-pointer group">
+                        <p class="text-base text-gray-900 font-medium">UX Design</p>
+                        <img src="./svg/check.svg" onload="SVGInject(this)" class="size-5 absolute top-1/2 -translate-y-1/2 right-2 hidden group-[.is-selected]:block" alt="">
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full hidden items-end justify-start gap-2 form-new-param">
+            <div class="w-full">
+              <label for="newParam" class="text-sm text-[#344054] font-semibold">Nome do parâmetro</label>
+              <input type="text" name="username" id="newParam" class="w-full block flex-1 mt-1.5 bg-white py-2 pl-3 border-0 ring-1 ring-inset ring-[#D0D5DD] text-gray-900 placeholder:text-gray-[#667085] focus:ring-[3px] focus:ring-[#D6BBFB] sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Ex.: Prazo para entrega">
+            </div>
+            <button class="flex py-2 px-3 items-center justify-center rounded-lg bg-[#7F56D9] text-white text-base transition-all hover:bg-purple-500 addParamBtn">
+              Adicionar
+            </button>
+          </div>
+          <button class="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[#D0D5DD] bg-white shadow-sm group hover:shadow-md transition-all new-parameter-button">
+            <p class="text-sm font-semibold text-[#344054] group-hover:text-gray-900 transition-all">Adicionar parâmetro</p>
+            <img src="./svg/plus.svg" class="size-5 stroke-[#334054] group-hover:stroke-gray-900 transition-all" onload="SVGInject(this)" alt="">
+          </button>
+
+          <div class="relative w-full">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-[#EAECF0]"></div>
+            </div>
+            <div class="relative flex justify-center w-full">
+              <span class="bg-[#F9FAFB] px-2 text-base text-[#475467]">Valores</span>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Valor dos serviços</label>
+            <div class="relative mt-2 rounded-md shadow-sm w-full">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-gray-500 sm:text-sm">R$</span>
+              </div>
+              <input type="text" name="price" id="price" class="block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm sm:leading-6" placeholder="0.00">
+              <div class="absolute inset-y-0 right-0 flex items-center">
+                <label for="currency" class="sr-only">Currency</label>
+                <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm">
+                  <option>BRL</option>
+                  <option>USD</option>
+                  <option>EUR</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <label for="discount" class="block text-sm font-medium leading-6 text-gray-900">Desconto</label>
+            <div class="relative mt-2 rounded-md shadow-sm w-full">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-gray-500 sm:text-sm">R$</span>
+              </div>
+              <input type="text" name="discount" id="discount" class="block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm sm:leading-6" placeholder="0.00">
+              <div class="absolute inset-y-0 right-0 flex items-center">
+                <label for="currency" class="sr-only">Currency</label>
+                <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm">
+                  <option>BRL</option>
+                  <option>USD</option>
+                  <option>EUR</option>
+                </select>
+              </div>
+            </div>
+            <p class="text-sm text-[#475467] mt-1.5">O desconto será aplicado na mesma moeda do valor dos serviços.</p>
+          </div>
+
+          <div class="w-full">
+            <label for="totalPrice" class="block text-sm font-medium leading-6 text-gray-900">Total dos serviços</label>
+            <div class="relative mt-2 rounded-md shadow-sm w-full">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-gray-500 sm:text-sm">R$</span>
+              </div>
+              <input type="text" name="totalPrice" id="totalPrice" class="block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm sm:leading-6" placeholder="0.00">
+              <div class="absolute inset-y-0 right-0 flex items-center">
+                <label for="currency" class="sr-only">Currency</label>
+                <select id="currency" name="currency" class="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm">
+                  <option>BRL</option>
+                  <option>USD</option>
+                  <option>EUR</option>
+                </select>
+              </div>
+            </div>
+            <p class="text-sm text-[#475467] mt-1.5">Valor calculado com base no desconto</p>
+          </div>
+
+          <div class="w-full">
+            <label for="finalURL" class="block text-sm font-medium leading-6 text-gray-900">URL Final</label>
+            <div class="mt-2">
+              <textarea rows="4" name="finalURL" id="finalURL" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" disabled></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="./js/app.js"></script>
+  <script src="./js/select-options.js"></script>
+  <script src="./js/new-parameter.js"></script>
+</body>
+
+</html>
