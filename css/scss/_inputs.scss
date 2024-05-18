@@ -15,7 +15,7 @@
     @apply w-full block flex-1 border-0 text-gray-900 placeholder:text-[#667085] focus:border-0 focus:ring-0 sm:text-sm sm:leading-6;
   }
   .deleteParam {
-    @apply transition-all p-1 absolute top-1/2 -translate-y-1/2 right-2;
+    @apply transition-all p-1 absolute top-1/2 -translate-y-1/2 right-2 z-10;
   }
 }
 
