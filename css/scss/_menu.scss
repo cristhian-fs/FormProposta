@@ -1,0 +1,43 @@
+.bottomBar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 80%;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  transition: 0.5s all ease-in-out;
+}
+.midBar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  transition: 0.5s all ease-in-out;
+}
+.topBar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  top: 20%;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  transition: 0.5s all ease-in-out;
+}
+
+.hamburgerButton.open-menu .topBar {
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(315deg);
+}
+.hamburgerButton.open-menu .bottomBar {
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(225deg);
+}
+
+.hamburgerButton.open-menu .midBar {
+  opacity: 0;
+}
