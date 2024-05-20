@@ -15,6 +15,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
     }
   });
 
+  const cancelSubmitButton = formNewParam.querySelector(".cancelAddParam");
+
+  cancelSubmitButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    formNewParam.classList.replace("flex", "hidden");
+    isOpenNewParam = false;
+  });
+
   const submitButton = formNewParam.querySelector(".addParamBtn");
   submitButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -23,7 +31,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     console.log(newParam);
 
     let paramDivAdded = document.createElement("div");
-    paramDivAdded.classList.add("w-full");
+    paramDivAdded.classList.add("w-full", "extraParamDiv");
 
     let paramLabel = document.createElement("label");
     paramLabel.setAttribute("for", slugify(newParam));
@@ -42,7 +50,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     inputParam.setAttribute("type", "text");
     inputParam.setAttribute("id", slugify(newParam));
     inputParam.setAttribute("name", slugify(newParam));
-    inputParam.classList.add("input-div-parent");
+    inputParam.classList.add("input-div-parent", "paramValue");
 
     let deleteParamButton = document.createElement("button");
     deleteParamButton.classList.add("deleteParam");
@@ -63,6 +71,20 @@ document.addEventListener("DOMContentLoaded", (e) => {
     newParamInput.value = "";
     formNewParam.classList.replace("flex", "hidden");
     isOpenNewParam = false;
+
+    deleteParamButton.addEventListener("click", () => {
+      paramDivAdded.remove();
+      const inputRemovido = new Event("inputRemovido", {
+        bubbles: true,
+      });
+      document.body.dispatchEvent(inputRemovido);
+    });
+
+    // Disparar evento personalizado
+    const eventoInputAdicionado = new CustomEvent("inputAdicionado", {
+      bubbles: true,
+    });
+    document.body.dispatchEvent(eventoInputAdicionado);
   });
 
   function slugify(text) {
