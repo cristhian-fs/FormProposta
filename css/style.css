@@ -57,6 +57,20 @@
   opacity: 0;
 }
 
+#mobile-menu {
+  transition: 150ms all ease-in;
+  transform: translateY(8px) translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#mobile-menu.opened-menu {
+  transition: 200ms all ease-out;
+  transform: translateY(0px) translateX(-50%);
+  opacity: 1;
+  pointer-events: all;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

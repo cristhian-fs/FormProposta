@@ -18,22 +18,22 @@
 
 <body>
 
-  <header class="bg-white">
+  <header class="bg-white border-b border-gray-100">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-      <div class="flex items-center gap-x-12">
+      <div class="flex items-center gap-x-10">
         <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+          <span class="sr-only">Cristhian Designer</span>
+          <span class="text-base font-bold uppercase text-gray-900">CRISTHIAN F.</span>
         </a>
-        <div class="hidden lg:flex lg:gap-x-12">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Product</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+        <div class="hidden lg:flex lg:gap-x-8">
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-600 transition-all hover:text-gray-800">Home</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-600 transition-all hover:text-gray-800">Economize tempo</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-600 transition-all hover:text-gray-800">Como funciona</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-600 transition-all hover:text-gray-800">Gerador</a>
         </div>
       </div>
       <div class="flex lg:hidden">
-        <button type="button" class="relative -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 group hamburgerButton">
+        <button type="button" data-menu-button class="relative -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 group hamburgerButton">
           <span class="sr-only">Open main menu</span>
           <div class="size-6 relative">
             <span class="bg-gray-700 transition-all duration-300 group-hover:bg-gray-900 bottomBar"></span>
@@ -46,151 +46,23 @@
         <a href="#" class="rounded-lg bg-primary-600 px-[18px] py-2.5 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-25 transition-all">Gerar URL agora</a>
       </div>
     </nav>
+    <div id="mobile-menu" class="absolute left-1/2 z-10 flex w-screen max-w-full -translate-x-1/2">
+      <div class="w-full shrink bg-white font-semibold leading-6  shadow-lg ring-1 ring-gray-900/5">
+        <div class="py-6 space-y-2 border-b border-gray-100 *:block *:text-base *:font-semibold *:px-4 *:py-3 *:text-gray-600">
+          <a href="#" class="hover:text-indigo-600">Home</a>
+          <a href="#" class="hover:text-indigo-600">Economize Tempo</a>
+          <a href="#" class="hover:text-indigo-600">Como funciona</a>
+          <a href="#" class="hover:text-indigo-600">Gerador</a>
+        </div>
+        <div class="py-6 px-4 space-y-2">
+          <a href="#" class="rounded-lg block text-center bg-primary-600 px-[18px] py-2.5 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-25 transition-all">Gerar URL agora</a>
+        </div>
 
+      </div>
+    </div>
   </header>
 
-
-
   <main>
-
-    <section class="relative isolate overflow-hidden bg-white">
-      <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-24">
-        <div class="flex flex-col items-center md:items-start justify-center mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
-          <span class="inline-flex space-x-3 py-1 pl-1 pr-2.5 bg-primary-50 rounded-full">
-            <span class="rounded-full bg-white px-2.5 py-[2px] text-sm font-medium leading-6 text-primary-700">Sem custos</span>
-            <span class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-primary-700">
-              <span>Por tempo limitado</span>
-            </span>
-          </span>
-          <h1 class="mt-4 text-4xl text-center md:text-left font-semibold tracking-tight text-gray-900 sm:text-6xl">Sua proposta comercial em 10min</h1>
-          <p class="mt-4 text-lg text-center md:text-left leading-8 text-gray-600">Automatize o processo para mandar sua proposta comercial para seus clientes e pare de perder tempo criando propostas individuais.</p>
-          <div class="mt-8 flex items-center gap-x-6">
-            <a href="#" class="rounded-lg bg-primary-600 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-25 transition-all">Gerar URL agora</a>
-            <a href="#" class="text-base font-semibold flex items-center gap-2 leading-6 text-gray-600 hover:text-gray-700 transition-all">Saiba mais <img src="./svg/chevron-right.svg" onload="SVGInject(this)" class="size-5 stroke-current" alt=""></a>
-          </div>
-        </div>
-        <div class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
-          <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-            <div class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              <img src="./image/hero-image-page-example.webp" alt="App screenshot" width="1036" height="694" class="w-[64rem] shadow-2xl ">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="overflow-hidden bg-white py-24 sm:py-32">
-      <div class="mx-auto max-w-7xl md:px-6 lg:px-8">
-        <div class="max-w-[48rem] px-4 lg:px-0">
-          <p class="text-base font-semibold leading-7 text-primary-700">Time saver</p>
-          <h2 class="mt-3 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">Economize Tempo e Impressione Seus Clientes</h2>
-          <p class="mt-6 text-lg md:text-xl leading-8 text-gray-600">Com nossa ferramenta de criação de propostas comerciais, você pode gerar propostas detalhadas e personalizadas em questão de minutos. Basta fazer o upload de um arquivo JSON no Elementor, ajustar alguns parâmetros de URL, e voilà! Sua proposta está pronta para ser enviada.</p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start mt-12 lg:mt-16">
-          <div class="px-6 lg:px-0 lg:pr-4 lg:pt-4">
-            <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
-              <dl class="mt-10 max-w-xl text-base leading-7 text-gray-600 lg:max-w-none">
-
-                <div class="relative pl-6 py-4">
-                  <dt class="block text-gray-900 text-lg font-semibold">
-                    Personalize com Parâmetros de URL
-                  </dt>
-                  <dd class="inline text-base text-gray-600">Use nosso formulário para preencher os dados do seu cliente, serviços que serão prestados e valores dos serviços.</dd>
-                </div>
-                <div class="relative pl-6 py-4">
-                  <dt class="block text-gray-900 text-lg font-semibold">
-                    Envie a Proposta Personalizada
-                  </dt>
-                  <dd class="inline text-base text-gray-600"> Envie propostas profissionais que impressionam seus clientes e destacam seu profissionalismo.</dd>
-                </div>
-              </dl>
-            </div>
-          </div>
-          <div class="sm:px-6 lg:px-0">
-            <div class="relative isolate overflow-hidden bg-indigo-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pl-16 sm:pr-0 sm:pt-16 lg:mx-0 lg:max-w-none">
-              <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-                <img src="https://tailwindui.com/img/component-images/project-app-screenshot.png" alt="Product screenshot" width="2432" height="1442" class="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-white/10">
-              </div>
-              <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl" aria-hidden="true"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="overflow-hidden bg-white py-24 sm:py-32">
-      <div class="mx-auto max-w-7xl md:px-6 lg:px-8">
-        <div class="max-w-[48rem] mx-auto px-4 lg:px-0">
-          <p class="text-base text-center font-semibold leading-7 text-primary-700">How it works</p>
-          <h2 class="mt-3 text-3xl text-center font-semibold tracking-tight text-gray-900 sm:text-4xl">Como funciona a implementação no Elementor</h2>
-          <p class="mt-6 text-lg text-center md:text-xl leading-8 text-gray-600">O modelo de proposta que será disponibilizado já esta configurado o máximo possível para os parâmetros padrões do formulário de criação, mas caso você venha a criar algum parâmetro, deve se atentar a alguns detalhes.</p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-x-8 lg:gap-x-24 gap-y-10 sm:gap-y-16 lg:grid-cols-2 lg:items-start mt-12 lg:mt-24">
-          <div class="px-6 lg:px-0 lg:pr-4 lg:pt-4">
-            <div class="mx-auto lg:mx-0 lg:max-w-lg">
-              <img src="./svg/Featured-icon-globe.svg" onload="SVGInject(this)">
-              <h3 class="text-2xl md:text-3xl text-left font-semibold text-gray-900 mt-6">
-                Share team inboxes
-              </h3>
-              <p class="text-base md:text-lg text-gray-600 leading-6 md:leading-7 mt-2 md:mt-4">
-                Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop. Leverage automation to move fast, while always giving customers a human, helpful experience.
-              </p>
-            </div>
-          </div>
-          <div class="sm:px-6 lg:px-0">
-            <div class="relative isolate overflow-hidden bg-gray-100 px-4 py-6 lg:px-10 lg:py-10 sm:mx-auto sm:max-w-2xl sm:rounded-3xl lg:mx-0 lg:max-w-none">
-              <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-                <img src="https://tailwindui.com/img/component-images/project-app-screenshot.png" alt="Product screenshot" width="2432" height="1442" class=" w-full h-full object-cover max-w-none rounded-xl bg-gray-800 ring-2 ring-gray-900">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 gap-x-8 lg:gap-x-24 gap-y-10 sm:gap-y-16 lg:grid-cols-2 lg:items-start mt-12 lg:mt-24">
-          <div class="px-6 lg:px-0 lg:pr-4 lg:pt-4">
-            <div class="mx-auto lg:mx-0 lg:max-w-lg">
-              <img src="./svg/Featured-icon-globe.svg" onload="SVGInject(this)">
-              <h3 class="text-2xl md:text-3xl text-left font-semibold text-gray-900 mt-6">
-                Share team inboxes
-              </h3>
-              <p class="text-base md:text-lg text-gray-600 leading-6 md:leading-7 mt-2 md:mt-4">
-                Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop. Leverage automation to move fast, while always giving customers a human, helpful experience.
-              </p>
-            </div>
-          </div>
-          <div class="sm:px-6 lg:px-0 lg:-order-1">
-            <div class="relative isolate overflow-hidden bg-gray-100 px-4 py-6 lg:px-10 lg:py-10 sm:mx-auto sm:max-w-2xl sm:rounded-3xl lg:mx-0 lg:max-w-none">
-              <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-                <img src="https://tailwindui.com/img/component-images/project-app-screenshot.png" alt="Product screenshot" width="2432" height="1442" class=" w-full h-full object-cover max-w-none rounded-xl bg-gray-800 ring-2 ring-gray-900">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 gap-x-8 lg:gap-x-24 gap-y-10 sm:gap-y-16 lg:grid-cols-2 lg:items-start mt-12 lg:mt-24">
-          <div class="px-6 lg:px-0 lg:pr-4 lg:pt-4">
-            <div class="mx-auto lg:mx-0 lg:max-w-lg">
-              <img src="./svg/Featured-icon-globe.svg" onload="SVGInject(this)">
-              <h3 class="text-2xl md:text-3xl text-left font-semibold text-gray-900 mt-6">
-                Share team inboxes
-              </h3>
-              <p class="text-base md:text-lg text-gray-600 leading-6 md:leading-7 mt-2 md:mt-4">
-                Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop. Leverage automation to move fast, while always giving customers a human, helpful experience.
-              </p>
-            </div>
-          </div>
-          <div class="sm:px-6 lg:px-0">
-            <div class="relative isolate overflow-hidden bg-gray-100 px-4 py-6 lg:px-10 lg:py-10 sm:mx-auto sm:max-w-2xl sm:rounded-3xl lg:mx-0 lg:max-w-none">
-              <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
-                <img src="https://tailwindui.com/img/component-images/project-app-screenshot.png" alt="Product screenshot" width="2432" height="1442" class=" w-full h-full object-cover max-w-none rounded-xl bg-gray-800 ring-2 ring-gray-900">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="py-16 md:py-24 lg:max-w-screen-xl lg:mx-auto">
       <div class="flex flex-col md:flex-row items-start justify-start px-4 gap-12 md:gap-16 relative">
         <div class="flex flex-col items-start justify-start px-4 gap-8 md:sticky md:top-16">
@@ -226,7 +98,7 @@
             <div class="mt-2">
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] focus-within:ring-[#D6BBFB]">
                 <span class="flex select-none items-center px-3 py-2 border-r border-[#D0D5DD] text-gray-500 text-base">http://</span>
-                <input type="url" name="username" id="domainURL" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6" placeholder="www.cristhiandesigner.com">
+                <input type="url" name="username" id="domainURL" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6" placeholder="seudominio.com">
               </div>
             </div>
           </div>
