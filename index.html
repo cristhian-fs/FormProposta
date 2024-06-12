@@ -16,23 +16,17 @@
   <script defer src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
-<body>
+<body class="bg-white dark:bg-gray-950">
 
-  <header class="bg-white border-b border-gray-100">
+  <header class="bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex items-center gap-x-10">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Cristhian Designer</span>
-          <span class="text-base font-bold uppercase text-gray-900">CRISTHIAN F.</span>
+          <span class="text-base font-bold uppercase text-gray-900 dark:text-gray-100">CRISTHIAN F.</span>
         </a>
-        <div class="hidden lg:flex lg:gap-x-8">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-600 transition-all hover:text-gray-800">Home</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-600 transition-all hover:text-gray-800">Economize tempo</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-600 transition-all hover:text-gray-800">Como funciona</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-600 transition-all hover:text-gray-800">Gerador</a>
-        </div>
       </div>
-      <div class="flex lg:hidden">
+      <!-- <div class="flex lg:hidden">
         <button type="button" data-menu-button class="relative -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 group hamburgerButton">
           <span class="sr-only">Open main menu</span>
           <div class="size-6 relative">
@@ -41,14 +35,27 @@
             <span class="bg-gray-700 transition-all duration-300 group-hover:bg-gray-900 topBar"></span>
           </div>
         </button>
-      </div>
-      <div class="hidden lg:flex">
-        <a href="#" class="rounded-lg bg-primary-600 px-[18px] py-2.5 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-25 transition-all">Gerar URL agora</a>
+      </div> -->
+      <div class="flex gap-4">
+        <!-- <a href="#" class="rounded-lg bg-primary-600 px-[18px] py-2.5 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-25 transition-all">Gerar URL agora</a> -->
+        <div class="flex items-center justify-center bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 shadow-sm rounded-md p-1">
+          <button id="theme-toggle" data-theme="light" type="button" class="text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2">
+            <svg id="theme-toggle-dark-icon" class="size-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+          </button>
+          <button id="theme-toggle" data-theme="dark" type="button" class="text-gray-500 dark:text-gray-400 dark:bg-gray-800 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2">
+            <svg id="theme-toggle-light-icon" class="size-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+
       </div>
     </nav>
-    <div id="mobile-menu" class="absolute left-1/2 z-10 flex w-screen max-w-full -translate-x-1/2">
-      <div class="w-full shrink bg-white font-semibold leading-6  shadow-lg ring-1 ring-gray-900/5">
-        <div class="py-6 space-y-2 border-b border-gray-100 *:block *:text-base *:font-semibold *:px-4 *:py-3 *:text-gray-600">
+    <!-- <div id="mobile-menu" class="absolute left-1/2 z-10 flex w-screen max-w-full -translate-x-1/2">
+      <div class="w-full shrink bg-white dark:bg-gray-800 font-semibold leading-6  shadow-lg ring-1 ring-gray-900/5">
+        <div class="py-6 space-y-2 border-b border-gray-100 dark:border-gray-800 *:block *:text-base *:font-semibold *:px-4 *:py-3 *:text-gray-600 dark:*:text-gray-300">
           <a href="#" class="hover:text-indigo-600">Home</a>
           <a href="#" class="hover:text-indigo-600">Economize Tempo</a>
           <a href="#" class="hover:text-indigo-600">Como funciona</a>
@@ -59,77 +66,86 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
   </header>
 
   <main>
-    <section class="py-16 md:py-24 lg:max-w-screen-xl lg:mx-auto">
-      <div class="flex flex-col md:flex-row items-start justify-start px-4 gap-12 md:gap-16 relative">
-        <div class="flex flex-col items-start justify-start px-4 gap-8 md:sticky md:top-16">
-          <h3 class="text-3xl text-[#101828] leading-[38px] font-semibold">Gere sua proposta agora mesmo</h3>
-          <p class="text-lg font-normal text-[#475467] leading-7">Use o formulário ao lado para colocar as informações essenciais para sua proposta comercial. Caso tenha alguma dúvida na utilização, sinta-se a vontade para tirar suas dúvidas nos canais abaixo.</p>
-          <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <section class="py-16 md:py-24  relative">
+
+      <svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-200 dark:stroke-gray-900 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+        <defs>
+          <pattern id="0787a7c5-978c-4f66-83c7-11c213f99cb7" width="50" height="50" x="50%" y="-1" patternUnits="userSpaceOnUse">
+            <path d="M.5 200V.5H200" fill="none" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" stroke-width="0" fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
+      </svg>
+      <div class="flex flex-col md:flex-row items-start justify-start px-4 gap-12 md:gap-16 relative lg:max-w-screen-xl lg:mx-auto">
+        <div class="flex flex-col items-start justify-start px-4 gap-8 md:sticky md:top-16 md:max-w-[576px] md:grow-0">
+          <h3 class="text-3xl text-[#101828] leading-[38px] font-semibold dark:text-white">Gere sua proposta agora mesmo</h3>
+          <p class="text-lg font-normal text-[#475467] dark:text-gray-300 leading-7">Use o formulário ao lado para colocar as informações essenciais para sua proposta comercial. Caso tenha alguma dúvida na utilização, sinta-se a vontade para tirar suas dúvidas nos canais abaixo.</p>
+          <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-10">
             <div class="flex flex-col items-start justify-start gap-3">
-              <img src="./svg/mail-01.svg" onload="SVGInject(this)" class="size-5" alt="">
-              <p class="text-lg text-[#101828] font-semibold">Email</p>
-              <p class="text-base text-[#475467]">Estamos aqui para te ajudar</p>
+              <img src="./svg/mail-01.svg" onload="SVGInject(this)" class="size-5 dark:stroke-purple-400" alt="">
+              <p class="text-lg text-[#101828] dark:text-white font-semibold">Email</p>
+              <p class="text-base text-[#475467] dark:text-gray-300">Estamos aqui para te ajudar</p>
               <a href="">
-                <p class="text-base text-[#6941C6] font-semibold">contato@csseasy.com.br</p>
+                <p class="text-base text-[#6941C6] dark:text-purple-400 font-semibold">contato@csseasy.com.br</p>
               </a>
             </div>
             <div class="flex flex-col items-start justify-start gap-3">
-              <img src="./svg/phone.svg" onload="SVGInject(this)" class="size-5" alt="">
-              <p class="text-lg text-[#101828] font-semibold">Whatsapp</p>
-              <p class="text-base text-[#475467]">Seg-sext de 8:00 às 18:00</p>
+              <img src="./svg/phone.svg" onload="SVGInject(this)" class="size-5 dark:stroke-purple-400" alt="">
+              <p class="text-lg text-[#101828] dark:text-white font-semibold">Whatsapp</p>
+              <p class="text-base text-[#475467] dark:text-gray-300">Seg-sext de 8:00 às 18:00</p>
               <a href="">
-                <p class="text-base text-[#6941C6] font-semibold">(38) 98803-3949</p>
+                <p class="text-base text-[#6941C6] dark:text-purple-400 font-semibold">(38) 98803-3949</p>
               </a>
             </div>
           </div>
         </div>
-        <div class="w-full p-4 flex flex-col items-start justify-center gap-5 bg-[#F9FAFB] rounded-lg">
+        <div class="w-full md:min-w-96 p-4 flex flex-col items-start justify-center gap-5 bg-[#F9FAFB] dark:bg-gray-900 rounded-lg">
           <div class="w-full">
-            <label for="nome-cliente" class="text-sm text-[#344054] font-semibold">Nome do cliente</label>
-            <input type="text" name="username" id="nome-cliente" class="paramValue w-full block flex-1 mt-1.5 bg-white py-2 pl-3 border-0 ring-1 ring-inset ring-[#D0D5DD] text-gray-900 placeholder:text-gray-[#667085] focus:ring-[3px] focus:ring-[#D6BBFB] sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="John Doe">
+            <label for="nome-cliente" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Nome do cliente</label>
+            <input type="text" name="username" id="nome-cliente" class="paramValue w-full block flex-1 mt-1.5 bg-white dark:bg-gray-800 py-2 pl-3 border-0 ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 text-gray-900 dark:text-gray-100 placeholder:text-gray-[#667085] dark:placeholder:text-gray-400 focus:ring-[3px] focus:ring-[#D6BBFB] dark:focus:ring-gray-700 dark:focus-within:ring-purple-200 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="John Doe">
           </div>
 
           <div class="w-full">
-            <label for="domainURL" class="text-sm text-[#344054] font-semibold">URL do seu domínio</label>
+            <label for="domainURL" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">URL do seu domínio</label>
             <div class="mt-2">
-              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] focus-within:ring-[#D6BBFB]">
-                <span class="flex select-none items-center px-3 py-2 border-r border-[#D0D5DD] text-gray-500 text-base">http://</span>
-                <input type="url" name="username" id="domainURL" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6" placeholder="seudominio.com">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 bg-white dark:bg-gray-800 focus-within:ring-[3px] focus-within:ring-[#D6BBFB]">
+                <span class="flex select-none items-center px-3 py-2 border-r border-[#D0D5DD] dark:border-gray-700 text-gray-500 text-base">http://</span>
+                <input type="url" name="username" id="domainURL" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 dark:text-gray-100 text-gray-[#101828] placeholder:text-gray-[#667085] dark:placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="seudominio.com">
               </div>
             </div>
           </div>
 
           <div class="w-full">
-            <label for="pageSlug" class="text-sm text-[#344054] font-semibold">Slug da sua página</label>
+            <label for="pageSlug" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Slug da sua página</label>
             <div class="mt-2">
-              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] focus-within:ring-[#D6BBFB]">
-                <span class="flex select-none items-center px-3 py-2 border-r border-[#D0D5DD] text-gray-500 text-base">/</span>
-                <input type="text" name="username" id="pageSlug" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6" placeholder="proposta-comercial">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 bg-white dark:bg-gray-800 focus-within:ring-[3px] focus-within:ring-[#D6BBFB]">
+                <span class="flex select-none items-center px-3 py-2 border-r border-[#D0D5DD] dark:border-gray-700 text-gray-500 text-base">/</span>
+                <input type="text" name="username" id="pageSlug" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900 dark:text-gray-100 text-gray-[#101828] placeholder:text-gray-[#667085] dark:placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="proposta-comercial">
               </div>
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-full">
             <div class="col-span-1">
-              <label for="data-envio" class="text-sm text-[#344054] font-semibold">Data de envio</label>
+              <label for="data-envio" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Data de envio</label>
               <div class="mt-2">
-                <div class="relative rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] focus-within:ring-[#D6BBFB] max-w-full min-w-0">
+                <div class="relative rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 bg-white dark:bg-gray-800 focus-within:ring-[3px] focus-within:ring-[#D6BBFB] max-w-full min-w-0">
                   <img src="./svg/calendar.svg" class="w-5 h-5 text-[#667085] stroke-[#667085] absolute top-1/2 left-3 -translate-y-1/2" onload="SVGInject(this)">
-                  <input type="text" name="data-envio" id="data-envio" class="paramValue pl-10 py-2 border-0 bg-transparent text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6" placeholder="15 May 2024">
+                  <input type="text" name="data-envio" id="data-envio" class="paramValue pl-10 py-2 border-0 bg-transparent text-gray-900 dark:text-gray-100 text-gray-[#101828] placeholder:text-gray-[#667085] dark:placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="15 May 2024">
                 </div>
               </div>
             </div>
 
             <div class="col-span-1">
-              <label for="data-validade" class="text-sm text-[#344054] font-semibold">Data de validade</label>
+              <label for="data-validade" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Data de validade</label>
               <div class="mt-2">
-                <div class="relative rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] focus-within:ring-[#D6BBFB] max-w-full sm:max-w-md min-w-0">
+                <div class="relative rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 bg-white dark:bg-gray-800 focus-within:ring-[3px] focus-within:ring-[#D6BBFB] max-w-full sm:max-w-md min-w-0">
                   <img src="./svg/calendar.svg" class="w-5 h-5 text-[#667085] stroke-[#667085] absolute top-1/2 left-3 -translate-y-1/2" onload="SVGInject(this)">
-                  <input type="text" name="data-validade" id="data-validade" class="paramValue pl-10 py-2 border-0 bg-transparent text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] focus:ring-0 sm:text-sm sm:leading-6" placeholder="25 May 2024">
+                  <input type="text" name="data-validade" id="data-validade" class="paramValue pl-10 py-2 border-0 bg-transparent text-gray-900 dark:text-gray-100 text-gray-[#101828] placeholder:text-gray-[#667085] dark:placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="25 May 2024">
                 </div>
               </div>
             </div>
@@ -138,29 +154,29 @@
 
           <div class="relative w-full">
             <div class="absolute inset-0 flex items-center" aria-hidden="true">
-              <div class="w-full border-t border-[#EAECF0]"></div>
+              <div class="w-full border-t border-[#EAECF0] dark:border-gray-700"></div>
             </div>
             <div class="relative flex justify-center w-full">
-              <span class="bg-[#F9FAFB] px-2 text-base text-[#475467]">Parâmetros</span>
+              <span class="bg-[#F9FAFB] px-2 text-base text-[#475467] dark:bg-gray-900 dark:text-gray-300">Parâmetros</span>
             </div>
           </div>
 
           <div class="w-full">
-            <label for="servico" class="text-sm text-[#344054] font-semibold">Serviço que será feito</label>
-            <input type="text" name="username" id="servico" class="paramValue w-full block flex-1 mt-1.5 bg-white py-2 pl-3 border-0 ring-1 ring-inset ring-[#D0D5DD] text-gray-900 placeholder:text-gray-[#667085] focus:ring-[3px] focus:ring-[#D6BBFB] sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço principal">
+            <label for="servico" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Serviço que será feito</label>
+            <input type="text" name="username" id="servico" class="paramValue w-full block flex-1 mt-1.5 bg-white dark:bg-gray-800 py-2 pl-3 border-0 ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 text-gray-900 dark:text-gray-100 placeholder:text-gray-[#667085] dark:placeholder:text-gray-400 focus:ring-[3px] focus:ring-[#D6BBFB] dark:focus:ring-gray-700 dark:focus-within:ring-purple-200 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço principal">
           </div>
 
           <div class="w-full flex flex-col items-center justify-center gap-5" id="params-field">
             <div class="w-full">
-              <label for="inclui" class="text-sm text-[#344054] font-semibold">O que é incluido?</label>
+              <label for="inclui" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">O que é incluido?</label>
               <div class="mt-2 relative">
-                <div class="flex flex-wrap gap-1 rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] bg-white focus-within:ring-[3px] px-3 py-1.5 focus-within:ring-[#D6BBFB]" id="includesTabs">
+                <div class="flex flex-wrap gap-1 rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 bg-white dark:bg-gray-800 focus-within:ring-[3px] px-3 py-1.5 focus-within:ring-[#D6BBFB]" id="includesTabs">
                   <!-- <div class="inline-flex flex-wrap gap-1" id=""></div> -->
-                  <input type="text" name="inclui" autocomplete="off" id="inclui" class="inline-flex flex-1 border-0 bg-transparent px-3 text-gray-900 text-gray-[#101828] placeholder:text-gray-[#667085] placeholder:text-sm focus:ring-0 sm:text-sm sm:leading-6 min-w-[20%] max-w-full flex-shrink" placeholder="Ex.: Implementação, Otimização">
+                  <input type="text" name="inclui" autocomplete="off" id="inclui" class="inline-flex flex-1 border-0 bg-transparent px-3 text-gray-900 dark:text-gray-100 text-gray-[#101828] placeholder:text-gray-[#667085] dark:placeholder:text-gray-400 placeholder:text-sm focus:ring-0 sm:text-sm sm:leading-6 min-w-[20%] max-w-full flex-shrink" placeholder="Ex.: Implementação, Otimização">
                 </div>
 
-                <p class="text-sm text-[#475467] mt-1.5">Pressione
-                  <span class="px-1 py-0.5 rounded-[4px] border-1 border-gray-200 inline-flex items-center justify-center bg-white text-gray-600">
+                <p class="text-sm text-[#475467] dark:text-gray-300 mt-1.5">Pressione
+                  <span class="px-1 py-0.5 rounded-[4px] border-1 border-gray-200 inline-flex items-center justify-center bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400">
                     Enter
                   </span>
                   a cada valor que quiser incluir
@@ -171,8 +187,8 @@
 
           <div class="w-full hidden flex-col items-start justify-end gap-2 form-new-param">
             <div class="w-full">
-              <label for="newParam" class="text-sm text-[#344054] font-semibold">Nome do parâmetro</label>
-              <input type="text" name="username" id="newParam" class="w-full block flex-1 mt-1.5 bg-white py-2 pl-3 border-0 ring-1 ring-inset ring-[#D0D5DD] text-gray-900 placeholder:text-gray-[#667085] focus:ring-[3px] focus:ring-[#D6BBFB] sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Ex.: Prazo para entrega">
+              <label for="newParam" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Nome do parâmetro</label>
+              <input type="text" name="username" id="newParam" class="w-full block flex-1 mt-1.5 bg-white dark:bg-gray-800 py-2 pl-3 border-0 ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 text-gray-900 dark:text-gray-100 placeholder:text-gray-[#667085] dark:placeholder:text-gray-400 focus:ring-[3px] focus:ring-[#D6BBFB] dark:focus:ring-gray-700 dark:focus-within:ring-purple-200 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Ex.: Prazo para entrega">
             </div>
             <div class="flex items-center justify-end w-full gap-2">
               <button class="flex py-2 px-3 items-center justify-center rounded-lg bg-[#F9F5FF] text-[#6941C6] text-base transition-all cancelAddParam">
@@ -185,30 +201,30 @@
 
           </div>
 
-          <button class="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[#D0D5DD] bg-white shadow-sm group hover:shadow-md transition-all new-parameter-button">
-            <p class="text-sm font-semibold text-[#344054] group-hover:text-gray-900 transition-all">Adicionar parâmetro</p>
-            <img src="./svg/plus.svg" class="size-5 stroke-[#334054] group-hover:stroke-gray-900 transition-all" onload="SVGInject(this)" alt="">
+          <button class="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-[#D0D5DD] dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm group hover:shadow-md transition-all new-parameter-button">
+            <p class="text-sm font-semibold text-[#344054]group-hover:text-gray-900 dark:text-gray-100 dark:group-hover:text-white transition-all">Adicionar parâmetro</p>
+            <img src="./svg/plus.svg" class="size-5 stroke-[#334054] dark:stroke-gray-300 group-hover:stroke-gray-900 dark:group-hover:stroke-white transition-all" onload="SVGInject(this)" alt="">
           </button>
 
           <div class="relative w-full">
             <div class="absolute inset-0 flex items-center" aria-hidden="true">
-              <div class="w-full border-t border-[#EAECF0]"></div>
+              <div class="w-full border-t border-[#EAECF0] dark:border-gray-700"></div>
             </div>
             <div class="relative flex justify-center w-full">
-              <span class="bg-[#F9FAFB] px-2 text-base text-[#475467]">Valores</span>
+              <span class="bg-[#F9FAFB] px-2 text-base text-[#475467] dark:bg-gray-900 dark:text-gray-300">Valores</span>
             </div>
           </div>
 
           <div class="w-full">
-            <label for="preco" class="block text-sm font-medium leading-6 text-gray-900">Valor dos serviços</label>
+            <label for="preco" class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100">Valor dos serviços</label>
             <div class="relative mt-2 rounded-md shadow-sm w-full">
               <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <span class="text-gray-500 sm:text-sm prefixCurrency">R$</span>
               </div>
-              <input type="text" name="preco" id="preco" class="paramValue block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm sm:leading-6" placeholder="00,00">
+              <input type="text" name="preco" id="preco" class="paramValue block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 dark:text-gray-100 dark:bg-gray-800 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 placeholder:text-gray-400 dark:placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] dark:focus:ring-gray-700 dark:focus-within:ring-purple-200 sm:text-sm sm:leading-6" placeholder="00,00">
               <div class="absolute inset-y-0 right-0 flex items-center">
                 <label for="currency" class="sr-only">Currency</label>
-                <select id="currency" name="currency" class="paramValue currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm">
+                <select id="currency" name="currency" class="paramValue currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] dark:focus:ring-gray-700 dark:focus-within:ring-purple-200 sm:text-sm">
                   <option value="BRL" selected>BRL</option>
                   <option value="USD">USD</option>
                   <option value="EUR">EUR</option>
@@ -218,15 +234,15 @@
           </div>
 
           <div class="w-full">
-            <label for="desconto" class="block text-sm font-medium leading-6 text-gray-900">Desconto</label>
+            <label for="desconto" class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100">Desconto</label>
             <div class="relative mt-2 rounded-md shadow-sm w-full">
               <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <span class="text-gray-500 sm:text-sm prefixCurrency">R$</span>
               </div>
-              <input type="text" name="desconto" id="desconto" class="paramValue block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm sm:leading-6" placeholder="00,00">
+              <input type="text" name="desconto" id="desconto" class="paramValue block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 dark:text-gray-100 dark:bg-gray-800 dark:ring-gray-700 dark:placeholder:text-gray-600 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] dark:focus:ring-gray-700 dark:focus-within:ring-purple-200 sm:text-sm sm:leading-6" placeholder="00,00">
               <div class="absolute inset-y-0 right-0 flex items-center">
                 <label for="currency01" class="sr-only">Currency</label>
-                <select id="currency01" name="currency" class="currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm" disabled>
+                <select id="currency01" name="currency" class="currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] dark:focus:ring-gray-700 dark:focus-within:ring-purple-200 sm:text-sm" disabled>
                   <option value="BRL">BRL</option>
                   <option value="USD">USD</option>
                   <option value="EUR">EUR</option>
@@ -237,15 +253,15 @@
           </div>
 
           <div class="w-full">
-            <label for="preco-total" class="block text-sm font-medium leading-6 text-gray-900">Total dos serviços</label>
+            <label for="preco-total" class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100">Total dos serviços</label>
             <div class="relative mt-2 rounded-md shadow-sm w-full">
               <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                 <span class="text-gray-500 sm:text-sm prefixCurrency">R$</span>
               </div>
-              <input type="text" name="preco-total" id="preco-total" class="paramValue block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm sm:leading-6" placeholder="00,00" disabled>
+              <input type="text" name="preco-total" id="preco-total" class="paramValue block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 dark:text-gray-100 dark:bg-gray-800 dark:ring-gray-700 dark:placeholder:text-gray-600 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] dark:focus:ring-gray-700 dark:focus-within:ring-purple-200 sm:text-sm sm:leading-6" placeholder="00,00" disabled>
               <div class="absolute inset-y-0 right-0 flex items-center">
                 <label for="currency02" class="sr-only">Currency</label>
-                <select id="currency02" name="currency" class="currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] sm:text-sm" disabled>
+                <select id="currency02" name="currency" class="currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-[#D6BBFB] dark:focus:ring-gray-700 dark:focus-within:ring-purple-200 sm:text-sm" disabled>
                   <option value="BRL">BRL</option>
                   <option value="USD">USD</option>
                   <option value="EUR">EUR</option>
@@ -256,18 +272,19 @@
           </div>
 
           <div class="w-full">
-            <label for="finalURL" class="block text-sm font-medium leading-6 text-gray-900">URL Final</label>
+            <label for="finalURL" class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100">URL Final</label>
             <div class="mt-2">
-              <textarea rows="4" name="finalURL" id="finalURL" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" disabled></textarea>
+              <textarea rows="4" name="finalURL" id="finalURL" class="block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-gray-100 shadow-sm dark:bg-gray-800 dark:ring-gray-700 dark:placeholder:text-gray-600 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" disabled></textarea>
             </div>
           </div>
 
-          <button id="copy-url-btn" class="flex py-2 px-3 w-full items-center justify-center gap-2 rounded-lg disabled:bg-[#E9D7FE] bg-[#7F56D9] text-white text-base transition-all hover:bg-purple-800" disabled>
+          <button id="copy-url-btn" class="flex py-2 px-3 w-full items-center justify-center gap-2 rounded-lg disabled:bg-[#E9D7FE] dark:disabled:bg-gray-600 disabled:cursor-not-allowed bg-[#7F56D9] dark:disabled:text-gray-400 text-white text-base transition-all hover:bg-purple-800" disabled>
             <img src="./svg/clipboard.svg" onload="SVGInject(this)" class="size-5" alt="">
             Copiar URL
           </button>
         </div>
       </div>
+
     </section>
   </main>
 
@@ -278,6 +295,7 @@
   <script defer type="module" src="./js/date-picker.js"></script>
   <script defer type="module" src="./js/money-inputs.js"></script>
   <script defer type="module" src="./js/final-url.js"></script>
+  <script defer type="module" src="./js/handleTheme.js"></script>
 </body>
 
 </html>
