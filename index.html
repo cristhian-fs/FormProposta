@@ -82,7 +82,7 @@
       </svg>
       <div class="flex flex-col md:flex-row items-start justify-start px-4 gap-12 md:gap-16 relative lg:max-w-screen-xl lg:mx-auto">
         <div class="flex flex-col items-start justify-start px-4 gap-8 md:sticky md:top-16 md:max-w-[576px] md:grow-0">
-          <h3 class="text-3xl text-[#101828] leading-[38px] font-semibold dark:text-white">Gere sua proposta agora mesmo</h3>
+          <h3 class="text-4xl md:text-5xl text-[#101828] leading-[38px] md:leading-tight font-semibold dark:text-white">Gere sua proposta agora mesmo</h3>
           <p class="text-lg font-normal text-[#475467] dark:text-gray-300 leading-7">Use o formulário ao lado para colocar as informações essenciais para sua proposta comercial. Caso tenha alguma dúvida na utilização, sinta-se a vontade para tirar suas dúvidas nos canais abaixo.</p>
           <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-10">
             <div class="flex flex-col items-start justify-start gap-3">
@@ -105,12 +105,24 @@
         </div>
         <div class="w-full md:min-w-96 p-4 flex flex-col items-start justify-center gap-5 bg-[#F9FAFB] dark:bg-gray-900 rounded-lg">
           <div class="w-full">
-            <label for="nome-cliente" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Nome do cliente</label>
+            <div class="flex items-center gap-2">
+              <label for="nome-cliente" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Nome do cliente</label>
+              <div class="relative">
+                <button class="tooltipBtn p-1 text-gray-400 hover:text-gray-700 dark:text-gray-600 dark:hover:text-gray-300">
+                  <img src="./svg/question-tooltip.svg" onload="SVGInject(this)" class="size-4 transition-all " alt="">
+                </button>
+                <div class="tooltipItem hidden">
+                  Nome do cliente que aparecerá na proposta
+                </div>
+              </div>
+            </div>
+
             <input type="text" name="username" id="nome-cliente" class="paramValue w-full block flex-1 mt-1.5 bg-white dark:bg-gray-800 py-2 pl-3 border-0 ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 text-gray-900 dark:text-gray-100 placeholder:text-gray-[#667085] dark:placeholder:text-gray-400 focus:ring-[3px] focus:ring-[#D6BBFB] dark:focus:ring-gray-700 dark:focus-within:ring-purple-200 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="John Doe">
           </div>
 
           <div class="w-full">
             <label for="domainURL" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">URL do seu domínio</label>
+
             <div class="mt-2">
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 bg-white dark:bg-gray-800 focus-within:ring-[3px] focus-within:ring-[#D6BBFB]">
                 <span class="flex select-none items-center px-3 py-2 border-r border-[#D0D5DD] dark:border-gray-700 text-gray-500 text-base">http://</span>
@@ -131,7 +143,17 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-full">
             <div class="col-span-1">
-              <label for="data-envio" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Data de envio</label>
+              <div class="flex items-center gap-2">
+                <label for="data-envio" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Data de envio</label>
+                <div class="relative">
+                  <button class="tooltipBtn p-1 text-gray-400 hover:text-gray-700 dark:text-gray-600 dark:hover:text-gray-300">
+                    <img src="./svg/question-tooltip.svg" onload="SVGInject(this)" class="size-4 transition-all " alt="">
+                  </button>
+                  <div class="tooltipItem hidden">
+                    Data de envio da proposta
+                  </div>
+                </div>
+              </div>
               <div class="mt-2">
                 <div class="relative rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 bg-white dark:bg-gray-800 focus-within:ring-[3px] focus-within:ring-[#D6BBFB] max-w-full min-w-0">
                   <img src="./svg/calendar.svg" class="w-5 h-5 text-[#667085] stroke-[#667085] absolute top-1/2 left-3 -translate-y-1/2" onload="SVGInject(this)">
@@ -141,7 +163,17 @@
             </div>
 
             <div class="col-span-1">
-              <label for="data-validade" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Data de validade</label>
+              <div class="flex items-center gap-2">
+                <label for="data-validade" class="text-sm text-[#344054] dark:text-gray-300 font-semibold">Data de validade</label>
+                <div class="relative">
+                  <button class="tooltipBtn p-1 text-gray-400 hover:text-gray-700 dark:text-gray-600 dark:hover:text-gray-300">
+                    <img src="./svg/question-tooltip.svg" onload="SVGInject(this)" class="size-4 transition-all " alt="">
+                  </button>
+                  <div class="tooltipItem hidden">
+                    Até quando a proposta será valida
+                  </div>
+                </div>
+              </div>
               <div class="mt-2">
                 <div class="relative rounded-md shadow-sm ring-1 ring-inset ring-[#D0D5DD] dark:ring-gray-700 bg-white dark:bg-gray-800 focus-within:ring-[3px] focus-within:ring-[#D6BBFB] max-w-full sm:max-w-md min-w-0">
                   <img src="./svg/calendar.svg" class="w-5 h-5 text-[#667085] stroke-[#667085] absolute top-1/2 left-3 -translate-y-1/2" onload="SVGInject(this)">
@@ -296,6 +328,7 @@
   <script defer type="module" src="./js/money-inputs.js"></script>
   <script defer type="module" src="./js/final-url.js"></script>
   <script defer type="module" src="./js/handleTheme.js"></script>
+  <script type="module" src="./js/tooltip.js"></script>
 </body>
 
 </html>

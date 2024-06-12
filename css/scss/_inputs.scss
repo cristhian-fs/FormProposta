@@ -17,9 +17,8 @@
   .deleteParam {
     @apply transition-all p-1 absolute top-1/2 -translate-y-1/2 right-2 z-10;
   }
-}
 
-#dropdown-services ul li.is-selected {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  .tooltipItem {
+    @apply absolute w-max max-w-80 top-0 right-0 z-10 p-1 px-2 text-sm bg-white dark:bg-gray-800  rounded-md border border-gray-300 dark:border-gray-700 shadow-lg text-gray-700 dark:text-white;
+  }
 }
