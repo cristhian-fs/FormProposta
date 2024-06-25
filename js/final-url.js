@@ -20,9 +20,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
   });
 
   const copyUrlButton = document.querySelector("#copy-url-btn");
+  const acessLink = document.getElementById("url-navigator-btn");
   function verificarValores() {
     if (domainURLValue && pageSlugValue) {
       copyUrlButton.removeAttribute("disabled");
+      acessLink.removeAttribute("disabled");
     }
   }
 
@@ -128,7 +130,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   });
 
   const finalUrlInput = document.querySelector("#finalURL");
-
+  const acessBtn = document.querySelector("#proposta-url");
   function generateLink() {
     if (domainURLValue && pageSlugValue) {
       finalUrlInput.value = `http://${domainURLValue}/${pageSlugValue}?${params.join(
@@ -136,6 +138,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
       )}`;
       finalUrlInput.setAttribute(
         "value",
+        `http://${domainURLValue}/${pageSlugValue}?${params.join("&")}`
+      );
+
+      acessBtn.setAttribute(
+        "href",
         `http://${domainURLValue}/${pageSlugValue}?${params.join("&")}`
       );
     }
