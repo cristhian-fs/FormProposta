@@ -76,7 +76,7 @@ function createDynamicInputWithTabs(
 
   // Adicionar evento keydown ao input
   input.addEventListener("keydown", (e) => {
-    if (e.key === ",") {
+    if (e.key === "," || e.key === "Enter") {
       e.preventDefault(); // Prevenir comportamento padrão do Enter
       let text = input.value.trim();
 
