@@ -1,3 +1,27 @@
+const inputClassList = [
+  "paramValue",
+  "w-full",
+  "block",
+  "flex-1",
+  "mt-1.5",
+  "bg-gray-50",
+  "py-2",
+  "pl-3",
+  "border-0",
+  "ring-1",
+  "ring-inset",
+  "ring-gray-200",
+  "text-gray-900",
+  "placeholder:text-gray-500",
+  "focus:ring-[3px]",
+  "focus:ring-gray-400",
+  "focus-within:ring-gray-400",
+  "sm:text-sm",
+  "sm:leading-6",
+  "rounded-lg",
+  "shadow-sm",
+];
+
 document.addEventListener("DOMContentLoaded", (e) => {
   const newParamButton = document.querySelector(".new-parameter-button");
   const paramsParent = document.getElementById("params-field");
@@ -28,7 +52,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     e.preventDefault();
     const newParamInput = formNewParam.querySelector('input[type="text"]');
     const newParam = newParamInput.value;
-    console.log(newParam);
 
     let paramDivAdded = document.createElement("div");
     paramDivAdded.classList.add("w-full", "extraParamDiv");
@@ -37,20 +60,20 @@ document.addEventListener("DOMContentLoaded", (e) => {
     paramLabel.setAttribute("for", slugify(newParam));
     paramLabel.classList.add(
       "text-sm",
-      "text-[#344054]",
+      "text-gray-600",
       "font-semibold",
       "block"
     );
     paramLabel.textContent = newParam;
 
     let inputDiv = document.createElement("div");
-    inputDiv.classList.add("div-input-primary", "relative", "group");
+    inputDiv.classList.add("w-full", "relative", "group");
 
     let inputParam = document.createElement("input");
     inputParam.setAttribute("type", "text");
     inputParam.setAttribute("id", slugify(newParam));
     inputParam.setAttribute("name", slugify(newParam));
-    inputParam.classList.add("input-div-parent", "paramValue");
+    inputParam.classList.add(...inputClassList);
 
     let deleteParamButton = document.createElement("button");
     deleteParamButton.classList.add("deleteParam");

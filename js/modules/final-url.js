@@ -1,6 +1,4 @@
-function getNewParams() {
-  return document.querySelectorAll(".paramValue");
-}
+import { getNewParams } from "./inputs-aux-functions.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   const domainURL = document.querySelector("#domainURL");
