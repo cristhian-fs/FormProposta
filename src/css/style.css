@@ -185,7 +185,6 @@ html.dark [data-sticky].active .stepSpan {
 [content-toggle],
 .child-navigation {
   scroll-margin-top: 50px;
-  scroll-padding-top: 50px;
 }
 
 body {
