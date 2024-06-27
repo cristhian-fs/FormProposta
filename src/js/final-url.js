@@ -1,5 +1,8 @@
 import { getNewParams } from "./inputs-aux-functions.js";
 
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
+
 export function initFinalUrl() {
   const domainURL = document.querySelector("#domainURL");
   let domainURLValue;
@@ -30,7 +33,7 @@ export function initFinalUrl() {
     e.preventDefault();
     navigator.clipboard.writeText(finalUrlInput.getAttribute("value"));
     Toastify({
-      text: "URL Copiada",
+      text: "Proposta copiada para sua area de transferência",
       duration: 3000,
       hideProgressBar: false,
       progress: 3000,
@@ -38,10 +41,10 @@ export function initFinalUrl() {
       position: "center", // `left`, `center` or `right`
       stopOnFocus: true, // Prevents dismissing of toast on hover
       style: {
-        background: "#FCFAFF",
-        border: "1px solid #D6BBFB",
-        borderRadius: "12px",
-        color: "#6941C6",
+        background: "#262626",
+        border: "1px solid #373737",
+        borderRadius: "6px",
+        color: "#fafafa",
       },
     }).showToast();
   });
