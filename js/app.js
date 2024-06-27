@@ -1,4 +1,9 @@
+import { initServiceInput } from "./modules/services-input.js";
+
 document.addEventListener("DOMContentLoaded", (e) => {
+  // INIT INPUTS
+  initServiceInput();
+
   // OPEN MENU IN MOBILE DEVICES
   const menuButton = document.querySelector("[data-menu-button]");
   const menuMobile = document.querySelector("#mobile-menu");
