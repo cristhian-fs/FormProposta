@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./src/css/style.scss">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+  <script src="./src/js/svg-inject.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+</head>
+
+<body class="bg-white dark:bg-black">
+
+  <header class="bg-white dark:bg-black border-b border-gray-100">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex items-center gap-x-10">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Proposta Infalível</span>
+          <span class="text-base font-bold uppercase text-gray-900 ">Proposta Infalível</span>
+        </a>
+      </div>
+      <!-- <div class="flex lg:hidden">
+        <button type="button" data-menu-button class="relative -m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 group hamburgerButton">
+          <span class="sr-only">Open main menu</span>
+          <div class="size-6 relative">
+            <span class="bg-gray-700 transition-all duration-300 group-hover:bg-gray-900 bottomBar"></span>
+            <span class="bg-gray-700 transition-all duration-300 group-hover:bg-gray-900 midBar"></span>
+            <span class="bg-gray-700 transition-all duration-300 group-hover:bg-gray-900 topBar"></span>
+          </div>
+        </button>
+      </div> -->
+      <div class="flex gap-4">
+        <!-- <a href="#" class="rounded-lg bg-primary-600 px-[18px] py-2.5 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-25 transition-all">Gerar URL agora</a> -->
+        <div class="flex items-center justify-center bg-white dark:bg-gray-50 border border-gray-300 shadow-sm rounded-md p-1">
+          <button id="theme-toggle" data-theme="light" type="button" class="text-gray-500  bg-gray-200 dark:bg-transparent hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-gray-200 rounded-lg text-sm p-2">
+            <svg id="theme-toggle-dark-icon" class="size-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+          </button>
+          <button id="theme-toggle" data-theme="dark" type="button" class="text-gray-500  dark:bg-gray-200 bg-transparent hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-gray-200 rounded-lg text-sm p-2">
+            <svg id="theme-toggle-light-icon" class="size-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+    <!-- <div id="mobile-menu" class="absolute left-1/2 z-10 flex w-screen max-w-full -translate-x-1/2">
+      <div class="w-full shrink bg-gray-50 font-semibold leading-6  shadow-lg ring-1 ring-gray-900/5">
+        <div class="py-6 space-y-2 border-b border-gray-100 dark:border-gray-800 *:block *:text-base *:font-semibold *:px-4 *:py-3 *:text-gray-600 dark:*:text-gray-300">
+          <a href="#" class="hover:text-indigo-600">Home</a>
+          <a href="#" class="hover:text-indigo-600">Economize Tempo</a>
+          <a href="#" class="hover:text-indigo-600">Como funciona</a>
+          <a href="#" class="hover:text-indigo-600">Gerador</a>
+        </div>
+        <div class="py-6 px-4 space-y-2">
+          <a href="#" class="rounded-lg block text-center bg-primary-600 px-[18px] py-2.5 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-25 transition-all">Gerar URL agora</a>
+        </div>
+
+      </div>
+    </div> -->
+  </header>
+
+  <main>
+
+    <section class="py-16 md:py-24 relative" id="form-section">
+      <svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-100 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+        <defs>
+          <pattern id="0787a7c5-978c-4f66-83c7-11c213f99cb7" width="50" height="50" x="50%" y="-1" patternUnits="userSpaceOnUse">
+            <path d="M.5 200V.5H200" fill="none" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" stroke-width="0" fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
+      </svg>
+      <div class="flex flex-col md:flex-row items-start justify-start px-4 gap-12 md:gap-16 relative lg:max-w-screen-xl lg:mx-auto">
+        <div class="flex flex-col items-start justify-start px-4 gap-8 md:sticky md:top-16 md:max-w-[576px] md:grow-0">
+          <h3 class="text-4xl md:text-5xl text-[#101828] leading-[38px] md:leading-tight font-medium dark:text-white">Gere sua proposta agora mesmo</h3>
+          <p class="text-lg font-normal text-gray-600 leading-7">Use o formulário ao lado para colocar as informações essenciais para sua proposta comercial. Caso tenha alguma dúvida na utilização, sinta-se a vontade para tirar suas dúvidas nos canais abaixo.</p>
+          <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-10">
+            <div class="flex flex-col items-start justify-start gap-3">
+              <img src="./src/svg/mail-01.svg" onload="SVGInject(this)" class="size-5 dark:stroke-purple-400" alt="">
+              <p class="text-lg text-black dark:text-white font-medium">Email</p>
+              <p class="text-base text-gray-600">Estamos aqui para te ajudar</p>
+              <a href="">
+                <p class="text-base text-black dark:text-white font-medium">contato@csseasy.com.br</p>
+              </a>
+            </div>
+            <div class="flex flex-col items-start justify-start gap-3">
+              <img src="./src/svg/phone.svg" onload="SVGInject(this)" class="size-5 dark:stroke-purple-400" alt="">
+              <p class="text-lg text-black dark:text-white font-semibold">Whatsapp</p>
+              <p class="text-base text-gray-600">Seg-sext de 8:00 às 18:00</p>
+              <a href="">
+                <p class="text-base text-black dark:text-white font-semibold">(38) 98803-3949</p>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:min-w-96 p-4 flex flex-col items-start justify-center gap-5 bg-gray-50 border-gray-100 rounded-lg">
+          <div class="w-full">
+            <div class="flex items-center gap-2">
+              <label for="nome-cliente" class="text-sm text-gray-500 font-semibold">Nome do cliente</label>
+              <div class="relative">
+                <button class="tooltipBtn p-1 text-gray-400 hover:text-gray-600 ">
+                  <img src="./src/svg/question-tooltip.svg" onload="SVGInject(this)" class="size-4 transition-all " alt="">
+                </button>
+                <div class="tooltipItem hidden">
+                  Nome do cliente que aparecerá na proposta
+                </div>
+              </div>
+            </div>
+
+            <input type="text" name="username" id="nome-cliente" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400  focus-within:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="John Doe">
+          </div>
+          <div class="w-full">
+            <label for="domainURL" class="text-sm text-gray-500 font-semibold">URL do seu domínio</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-200 bg-gray-50 focus-within:ring-[3px] focus-within:ring-gray-400">
+                <span class="flex select-none items-center px-3 py-2 border-r border-gray-300  text-gray-500 text-base">http://</span>
+                <input type="url" name="username" id="domainURL" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900  text-gray-[#101828] placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6" placeholder="seudominio.com">
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <label for="pageSlug" class="text-sm text-gray-500 font-semibold">Slug da sua página</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-200 bg-gray-50 focus-within:ring-[3px] focus-within:ring-gray-400">
+                <span class="flex select-none items-center px-3 py-2 border-r border-gray-300  text-gray-500 text-base">/</span>
+                <input type="text" name="username" id="pageSlug" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900  text-gray-[#101828] placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6" placeholder="proposta-comercial">
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-full">
+            <div class="col-span-1">
+              <div class="flex items-center gap-2">
+                <label for="data-envio" class="text-sm text-gray-500 font-semibold">Data de envio</label>
+                <div class="relative">
+                  <button class="tooltipBtn p-1 text-gray-400 hover:text-gray-600 ">
+                    <img src="./src/svg/question-tooltip.svg" onload="SVGInject(this)" class="size-4 transition-all " alt="">
+                  </button>
+                  <div class="tooltipItem hidden">
+                    Data de envio da proposta
+                  </div>
+                </div>
+              </div>
+              <div class="mt-2">
+                <div class="relative rounded-md shadow-sm ring-1 ring-inset ring-gray-200 bg-gray-50 focus-within:ring-[3px] focus-within:ring-gray-400 max-w-full min-w-0">
+                  <img src="./src/svg/calendar.svg" class="w-5 h-5 text-gray-600 stroke-gray-600 absolute top-1/2 left-3 -translate-y-1/2" onload="SVGInject(this)">
+                  <input type="text" name="data-envio" id="data-envio" class="paramValue pl-10 py-2 border-0 bg-transparent text-gray-900  text-gray-[#101828] placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6" placeholder="15 May 2024">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-span-1">
+              <div class="flex items-center gap-2">
+                <label for="data-validade" class="text-sm text-gray-500 font-semibold">Data de validade</label>
+                <div class="relative">
+                  <button class="tooltipBtn p-1 text-gray-400 hover:text-gray-600 ">
+                    <img src="./src/svg/question-tooltip.svg" onload="SVGInject(this)" class="size-4 transition-all " alt="">
+                  </button>
+                  <div class="tooltipItem hidden">
+                    Até quando a proposta será valida
+                  </div>
+                </div>
+              </div>
+              <div class="mt-2">
+                <div class="relative rounded-md shadow-sm ring-1 ring-inset ring-gray-200 bg-gray-50 focus-within:ring-[3px] focus-within:ring-gray-400 max-w-full sm:max-w-md min-w-0">
+                  <img src="./src/svg/calendar.svg" class="w-5 h-5 text-gray-600 stroke-gray-600 absolute top-1/2 left-3 -translate-y-1/2" onload="SVGInject(this)">
+                  <input type="text" name="data-validade" id="data-validade" class="paramValue pl-10 py-2 border-0 bg-transparent text-gray-900  text-gray-[#101828] placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6" placeholder="25 May 2024">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="relative w-full">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-gray-300 "></div>
+            </div>
+            <div class="relative flex justify-center w-full">
+              <span class="bg-gray-50 dark:bg-gray-50 px-2 text-base text-gray-600">Parâmetros</span>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <label for="servico" class="text-sm text-gray-500 font-semibold">Serviço que será feito</label>
+            <input type="text" name="username" id="servico" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço principal">
+          </div>
+
+          <div class="w-full flex flex-col items-center justify-center gap-5" id="params-field">
+            <div class="w-full">
+              <label for="inclui" class="text-sm text-gray-500 font-semibold">O que é incluido?</label>
+              <div class="mt-2 relative">
+                <div class="flex flex-wrap gap-1 rounded-md shadow-sm ring-1 ring-inset ring-gray-200 bg-gray-50 focus-within:ring-[3px] px-3 py-1.5 focus-within:ring-gray-400" id="includesTabs">
+                  <!-- <div class="inline-flex flex-wrap gap-1" id=""></div> -->
+                  <input type="text" name="inclui" autocomplete="off" id="inclui" class="inline-flex flex-1 border-0 bg-transparent px-3 text-gray-900  text-gray-[#101828] placeholder:text-gray-500 placeholder:text-sm focus:ring-0 sm:text-sm sm:leading-6 min-w-[20%] max-w-full flex-shrink" placeholder="Ex.: Implementação, Otimização">
+                </div>
+
+                <p class="text-sm text-gray-500 mt-1.5">Pressione
+                  <span class="px-1 py-0.5 rounded-[4px] border-1 border-gray-200 inline-flex items-center justify-center bg-gray-100 text-gray-600">
+                    Enter
+                  </span>
+                  ou <span class="px-1 py-0.5 rounded-[4px] border-1 border-gray-200 inline-flex items-center justify-center bg-gray-100 text-gray-600">
+                    ,
+                  </span>
+                  a cada valor que quiser incluir
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full hidden flex-col items-start justify-end gap-2 form-new-param">
+            <div class="w-full">
+              <label for="newParam" class="text-sm text-gray-500 font-semibold">Nome do parâmetro</label>
+              <input type="text" name="username" id="newParam" class="w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400  dark:focus-within:ring-purple-200 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Ex.: Prazo para entrega">
+            </div>
+            <div class="flex items-center justify-end w-full gap-2">
+              <button class="flex py-2 px-3 items-center justify-center rounded-lg bg-gray-50 border border-gray-300 text-gray-950 hover:text-red-500 text-base transition-all cancelAddParam">
+                Cancelar
+              </button>
+              <button class="flex py-2 px-3 items-center justify-center rounded-lg bg-indigo-600 dark:bg-indigo-400 text-white text-base transition-all hover:opacity-80 addParamBtn">
+                Adicionar
+              </button>
+            </div>
+
+          </div>
+
+          <button class="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-gray-300 bg-gray-50 shadow-sm group hover:shadow-md transition-all new-parameter-button">
+            <p class="text-sm font-semibold text-gray-600 group-hover:text-gray-900   transition-all">Adicionar parâmetro</p>
+            <img src="./src/svg/plus.svg" class="size-5 stroke-gray-600 group-hover:stroke-gray-900 dark:group-hover:stroke-white transition-all" onload="SVGInject(this)" alt="">
+          </button>
+
+          <div class="relative w-full">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-gray-300 "></div>
+            </div>
+            <div class="relative flex justify-center w-full">
+              <span class="bg-gray-50 dark:bg-gray-50 px-2 text-base text-gray-600">Valores</span>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <label for="preco" class="block text-sm font-medium leading-6 text-gray-900 ">Valor dos serviços</label>
+            <div class="relative mt-2 rounded-md shadow-sm w-full">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-gray-500 sm:text-sm prefixCurrency">R$</span>
+              </div>
+              <input type="text" name="preco" id="preco" class="paramValue bg-gray-50 block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6" placeholder="00,00">
+              <div class="absolute inset-y-0 right-0 flex items-center">
+                <label for="currency" class="sr-only">Currency</label>
+                <select id="currency" name="currency" class="paramValue currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm">
+                  <option value="BRL" selected>BRL</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-full">
+            <label for="desconto" class="block text-sm font-medium leading-6 text-gray-900 ">Desconto</label>
+            <div class="relative mt-2 rounded-md shadow-sm w-full">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-gray-500 sm:text-sm prefixCurrency">R$</span>
+              </div>
+              <input type="text" name="desconto" id="desconto" class="paramValue bg-gray-50 block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6" placeholder="00,00">
+              <div class="absolute inset-y-0 right-0 flex items-center">
+                <label for="currency01" class="sr-only">Currency</label>
+                <select id="currency01" name="currency" class="currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm" disabled>
+                  <option value="BRL">BRL</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                </select>
+              </div>
+            </div>
+            <p class="text-sm text-gray-500 mt-1.5">O desconto será aplicado na mesma moeda do valor dos serviços.</p>
+          </div>
+
+          <div class="w-full">
+            <label for="preco-total" class="block text-sm font-medium leading-6 text-gray-900 ">Total dos serviços</label>
+            <div class="relative mt-2 rounded-md shadow-sm w-full">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <span class="text-gray-500 sm:text-sm prefixCurrency">R$</span>
+              </div>
+              <input type="text" name="preco-total" id="preco-total" class="paramValue bg-gray-50 block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6" placeholder="00,00" disabled>
+              <div class="absolute inset-y-0 right-0 flex items-center">
+                <label for="currency02" class="sr-only">Currency</label>
+                <select id="currency02" name="currency" class="currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm" disabled>
+                  <option value="BRL">BRL</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                </select>
+              </div>
+            </div>
+            <p class="text-sm text-gray-500 mt-1.5">Valor calculado com base no desconto</p>
+          </div>
+
+          <div class="w-full">
+            <label for="finalURL" class="block text-sm font-medium leading-6 text-gray-900 ">URL Final</label>
+            <div class="mt-2">
+              <textarea rows="4" name="finalURL" id="finalURL" class="block bg-gray-50 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm  ring-1 ring-inset ring-gray-200 placeholder:text-gray-600 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" disabled></textarea>
+            </div>
+          </div>
+
+          <button id="copy-url-btn" class="flex py-2 px-3 w-full items-center justify-center gap-2 rounded-lg disabled:bg-gray-200 disabled:cursor-not-allowed bg-black dark:bg-white text-white dark:text-black text-base transition-all hover:opacity-80" disabled>
+            <img src="./src/svg/clipboard.svg" onload="SVGInject(this)" class="size-5" alt="">
+            Copiar URL
+          </button>
+          <a href="" target="_blank" id="proposta-url" class="w-full">
+            <button id="url-navigator-btn" class="py-2 px-3 w-full border border-gray-200 gap-2 rounded-lg disabled:bg-transparent disabled:border-gray-300 disabled:cursor-not-allowed disabled:text-gray-300 text-gray-800 text-base transition-all disabled:hover:bg-transparent" disabled>
+              Acessar proposta
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 relative">
+      <div class="flex flex-col items-center justify-center px-4 gap-4 relative lg:max-w-screen-xl lg:mx-auto pb-10 border-b border-gray-300 md:pb-20">
+        <h1 class="mt-10 text-3xl font-medium tracking-tight text-gray-900 sm:text-6xl text-center">Como funciona</h1>
+        <p class="text-gray-600 text-center leading-relaxed md:max-w-[768px]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem praesentium voluptatem quasi optio odio facere ipsam illo animi magni, dolorum neque consectetur assumenda numquam commodi velit. Repellat repellendus atque voluptatum?</p>
+        <a href="">
+          <button class="py-2 px-4 items-center justify-center gap-2 rounded-full bg-indigo-600  text-white text-base transition-all hover:opacity-80">
+            Entre em contato
+          </button>
+        </a>
+      </div>
+      <div class="flex flex-col md:flex-row items-start justify-start relative lg:max-w-screen-xl lg:mx-auto mt-16 gap-12">
+        <div class="sticky top-16 left-0 hidden lg:block flex-shrink-0 pr-12 border-r border-gray-300 md:min-w-[400px]">
+          <ul class="space-y-8">
+            <li class="flex flex-col">
+              <a class="flex gap-2 items-center" href="#download" data-sticky="download">
+                <span class="rounded-full flex items-center justify-center size-8 stepSpan text-gray-50">1</span>
+                <p class="text-gray-800">Download do JSON</p>
+              </a>
+            </li>
+            <li class="flex flex-col">
+              <a class="flex gap-2 items-center" href="#import" data-sticky="import">
+                <span class="rounded-full flex items-center justify-center size-8 stepSpan text-gray-50">2</span>
+                <p class="text-gray-800">Importação do JSON</p>
+              </a>
+            </li>
+            <li class="flex flex-col">
+              <a class="flex gap-2 items-center" href="#configs" data-sticky="configs">
+                <span class="rounded-full flex items-center justify-center size-8 stepSpan text-gray-50">3</span>
+                <p class="text-gray-800">Configuração da página</p>
+              </a>
+            </li>
+            <li class="flex flex-col">
+              <a class="flex gap-2 items-center" href="#generating" data-sticky="generating">
+                <span class="rounded-full flex items-center justify-center size-8 stepSpan text-gray-50">4</span>
+                <p class="text-gray-800">Gerando proposta com o formulário</p>
+              </a>
+            </li>
+            <li class="flex flex-col">
+              <a class="flex gap-2 items-center" href="#params" data-sticky="params">
+                <span class="rounded-full flex items-center justify-center size-8 stepSpan text-gray-50">5</span>
+                <p class="text-gray-800">Configurando parâmetros</p>
+              </a>
+            </li>
+            <li class="flex flex-col">
+              <a class="flex gap-2 items-center" href="#addingParams" data-sticky="addingParams">
+                <span class="rounded-full flex items-center justify-center size-8 stepSpan text-gray-50">6</span>
+                <p class="text-gray-800">Adicionando novos parâmetros</p>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+        <div class="w-full flex flex-col">
+          <!-- ====== Download do JSON ===== -->
+          <div class="w-full block md:hidden" button-mobile-toggle="download">
+            <button class="w-full px-4 flex items-center justify-between py-2 border-b border-gray-300">
+              <div class="flex gap-2 items-center">
+                <span class="rounded-full flex items-center justify-center size-8 bg-black dark:bg-white text-gray-50">1</span>
+                <p class="text-gray-800">Download do JSON</p>
+              </div>
+              <img src="./src/svg/chevron-right.svg" onload="SVGInject(this)" class="rotate-90 stroke-gray-800" alt="">
+            </button>
+          </div>
+          <div class="w-full overflow-hidden md:overflow-visible pb-12 md:pb-24 md:border-b border-gray-400" content-toggle="download" data-state="opened" id="download">
+            <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Faça o download do JSON da página</h3>
+            <p class="mt-4 text-gray-600 text-lg leading-snug">
+              Abaixo você encontrará um botão para fazer o download do JSON da página. O link te levará ao drive, basta apertar com o botão direito e selecionar a opção "Fazer download".
+            </p>
+
+            <img src="./src/image/download-mockup.png" class="mt-8 rounded-md shadow-2xl w-full dark:border dark:border-gray-300" alt="Imagem mockup demostração de download">
+          </div>
+
+          <!-- ====== Importação do JSON ===== -->
+
+          <div class="w-full block md:hidden" button-mobile-toggle="import">
+            <button class="w-full px-4 flex items-center justify-between py-2 border-b border-gray-300">
+              <div class="flex gap-2 items-center">
+                <span class="rounded-full flex items-center justify-center size-8 bg-black dark:bg-white text-gray-50">2</span>
+                <p class="text-gray-800">Importação do JSON</p>
+              </div>
+              <img src="./src/svg/chevron-right.svg" onload="SVGInject(this)" class="rotate-90 stroke-gray-800" alt="">
+            </button>
+          </div>
+          <div class="w-full overflow-hidden md:overflow-visible pb-12 md:py-24 md:border-b border-gray-400 flex flex-col gap-8 md:gap-24" content-toggle="import" id="import">
+            <div class="child-navigation" id="new-page">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Crie uma nova página usando o Elementor</h3>
+              <p class="mt-4 text-gray-600 text-lg leading-snug">
+                A página deve ser criada com as opções:
+              </p>
+              <ul class="text-gray-500 mt-2">
+                <li>Nome da página: opcional (sugestão: Proposta comercial)</li>
+                <li>Modelo: Elementor Canvas</li>
+                <li>URL: opcional (sugestão: proposta-comercial)</li>
+              </ul>
+              <img src="./src/image/page-creation.png" class="mt-8 rounded-md shadow-2xl w-full dark:border dark:border-gray-300" alt="Imagem mockup de criação de página">
+            </div>
+            <div class="child-navigation" id="import-model">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Importe o modelo para sua página</h3>
+              <p class="mt-4 text-gray-600 text-lg leading-snug">
+                Clique na seta para baixo ao lado do botão "Publicar", clique o ícone "Importar um modelo" e selecione o arquivo JSON que você baixou nos passos anteriores.
+              </p>
+              <img src="./src/image/import-mockup.png" class="mt-8 rounded-md shadow-2xl w-full dark:border dark:border-gray-300" alt="Imagem mockup de importação de JSON">
+            </div>
+          </div>
+          <!-- ====== Configurações e estilos ===== -->
+          <div class="w-full block md:hidden" button-mobile-toggle="configs">
+            <button class="w-full px-4 flex items-center justify-between py-2 border-b border-gray-300">
+              <div class="flex gap-2 items-center">
+                <span class="rounded-full flex items-center justify-center size-8 bg-black dark:bg-white text-gray-50">3</span>
+                <p class="text-gray-800">Configurando a página</p>
+              </div>
+              <img src="./src/svg/chevron-right.svg" onload="SVGInject(this)" class="rotate-90 stroke-gray-800" alt="">
+            </button>
+          </div>
+          <div class="w-full overflow-hidden md:overflow-visible pb-12 md:py-24 md:border-b border-gray-400 flex flex-col gap-8 md:gap-24" content-toggle="configs" id="configs">
+            <div class="child-navigation" id="style-page">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Estilizando a página</h3>
+              <p class="mt-4 text-gray-600 text-lg leading-snug">
+                A página da proposta foi toda configurada e estilizada de maneira fácil e intuitiva, utilizando a menor quantidade possivel de widgets. Todos os estilos podem ser alterados de acordo com sua identidade visual.
+              </p>
+
+            </div>
+            <div class="child-navigation" id="change-tel">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Mudando o telefone do link da CTA</h3>
+              <p class="mt-4 text-gray-600 text-lg leading-snug">
+                No penúltimo widget HTML da página, você vai encontrar um script onde é configurado o link da CTA. Altere a seguinte linha para o valor do whatsapp onde o cliente vai ser redirecionado para aceitar a proposta:
+              </p>
+              <pre class="w-full">
+                  <code class="language-javascript">const telefone = "Altere aqui (mantendo as aspas)";
+                  </code>
+              </pre>
+
+            </div>
+          </div>
+          <!-- ====== Gerando proposta ===== -->
+          <div class="w-full block md:hidden" button-mobile-toggle="generating">
+            <button class="w-full px-4 flex items-center justify-between py-2 border-b border-gray-300">
+              <div class="flex gap-2 items-center">
+                <span class="rounded-full flex items-center justify-center size-8 bg-black dark:bg-white text-gray-50">4</span>
+                <p class="text-gray-800">Gerando proposta com o formulário</p>
+              </div>
+              <img src="./src/svg/chevron-right.svg" onload="SVGInject(this)" class="rotate-90 stroke-gray-800" alt="">
+            </button>
+          </div>
+          <div class="w-full overflow-hidden md:overflow-visible pb-12 md:py-24 md:border-b border-gray-400 flex flex-col gap-8 md:gap-24" content-toggle="generating" id="generating">
+            <div class="child-navigation" id="fill-form">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Preencha os dados do formulário</h3>
+              <p class="mt-4 text-gray-600 text-lg leading-snug">
+                Utilize o formulário disponibilizado nessa página para preencher os dados e gerar a proposta. Todos os campos tem nomes e placeholders legíveis e precisam ser preenchidos corretamente.
+              </p>
+            </div>
+            <div class="child-navigation" id="initial-fields">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Campos iniciais</h3>
+              <table class="min-w-full overflow-scroll divide-y divide-gray-300 border border-gray-300 rounded-md mt-4">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Nome do campo</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Descrição</th>
+
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 bg-white dark:bg-black">
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Nome do cliente</td>
+                    <td class=" px-3 py-4 text-sm text-gray-500">Define o nome do cliente que aparecerá na proposta</td>
+                  </tr>
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">URL do seu dominio</td>
+                    <td class=" px-3 py-4 text-sm text-gray-500">É a URL do wordpress onde está hospedado sua página da proposta</td>
+                  </tr>
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Slug da sua página</td>
+                    <td class=" px-3 py-4 text-sm text-gray-500">O que aparece no link da proposta após a / . Ex.:www.seudominio.com/proposta-comercial</td>
+                  </tr>
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Data de envio</td>
+                    <td class=" px-3 py-4 text-sm text-gray-500">A data que a proposta esta sendo enviada.</td>
+                  </tr>
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Data de validade</td>
+                    <td class=" px-3 py-4 text-sm text-gray-500">A data que a proposta ficará disponível para seu cliente</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="child-navigation" id="main-service">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Serviço principal</h3>
+              <table class="min-w-full overflow-scroll divide-y divide-gray-300 border border-gray-300 rounded-md mt-4">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Nome do campo</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Descrição</th>
+
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 bg-white dark:bg-black">
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Serviço que será feito</td>
+                    <td class="px-3 py-4 text-sm text-gray-500">Esse serviço aparecerá como nome principal da proposta, como demostrado no print abaixo</td>
+                  </tr>
+                </tbody>
+              </table>
+              <img src="./src/image/service-name-mockup.png" class="mt-4 rounded-md shadow-2xl w-full dark:border dark:border-gray-300" alt="Imagem de nome do serviço na prática">
+            </div>
+            <div class="child-navigation" id="includes">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Entregáveis</h3>
+              <table class="min-w-full overflow-scroll divide-y divide-gray-300 border border-gray-300 rounded-md mt-4">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Nome do campo</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 bg-white dark:bg-black">
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">O que é incluido?</td>
+                    <td class=" px-3 py-4 text-sm text-gray-500">Aqui você deve dizer tudo que o serviço prestado inclui, para agregar mais valor ao serviço. Como exibido na imagem abaixo</td>
+                  </tr>
+                </tbody>
+              </table>
+              <img src="./src/image/includes-mockup.png" class="mt-4 rounded-md shadow-2xl w-full dark:border dark:border-gray-300" alt="Imagem de tudo que o serviço inclui na prática">
+            </div>
+            <div class="child-navigation" id="values">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Valores</h3>
+              <table class="min-w-full overflow-scroll divide-y divide-gray-300 border border-gray-300 rounded-md mt-4">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Nome do campo</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Descrição</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 bg-white dark:bg-black">
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Valor dos serviços</td>
+                    <td class=" px-3 py-4 text-sm text-gray-500">Valor total do serviço a ser prestado. Com compatibilidade para valores em dólares e euros.</td>
+                  </tr>
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Valor dos serviços</td>
+                    <td class=" px-3 py-4 text-sm text-gray-500">Desconto a ser aplicado, se houver. A moeda será baseada na moeda escolhida no valor dos serviços</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- ====== Parametros do site ===== -->
+          <div class="w-full block md:hidden" button-mobile-toggle="params">
+            <button class="w-full px-4 flex items-center justify-between py-2 border-b border-gray-300">
+              <div class="flex gap-2 items-center">
+                <span class="rounded-full flex items-center justify-center size-8 bg-black dark:bg-white text-gray-50">5</span>
+                <p class="text-gray-800">Configurando parêmetros</p>
+              </div>
+              <img src="./src/svg/chevron-right.svg" onload="SVGInject(this)" class="rotate-90 stroke-gray-800" alt="">
+            </button>
+          </div>
+          <div class="w-full overflow-hidden md:overflow-visible pb-12 md:py-24 md:border-b border-gray-400" content-toggle="params" id="params">
+            <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Parametros comuns</h3>
+            <p class="mt-4 text-gray-600 text-lg leading-relaxed">
+              A página já está configurada para receber todos os parametros comuns vindos do formulário, e caso queira mostrar uma informação novamente em outro lugar da página, deve colocar um <code class="p-1 rounded-md border border-gray-300 bg-gray-50 shadow-sm font-mono text-indigo-600 dark:text-indigo-400">&lt;span data-param="value"&gt;&lt;/span&gt;</code> dentro do widget de texto/título. Alterando o valor dentro das aspas.
+              <br>
+              Siga a lista de abaixo para os valores padrões para cada parâmetro.
+            </p>
+            <table class="min-w-full overflow-scroll divide-y divide-gray-300 border border-gray-300 rounded-md mt-4">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Valor do parâmetro</th>
+                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Descrição</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200 bg-white dark:bg-black">
+                <tr>
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"><code class="p-1 rounded-md border border-gray-300 bg-gray-50 shadow-sm font-mono text-indigo-600 dark:text-indigo-400">nome-cliente</code></td>
+                  <td class=" px-3 py-4 text-sm text-gray-500">Nome do cliente que vai aparecer na proposta</td>
+                </tr>
+                <tr>
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                    <code class="p-1 rounded-md border border-gray-300 bg-gray-50 shadow-sm font-mono text-indigo-600 dark:text-indigo-400">data-envio</code>
+                  </td>
+                  <td class=" px-3 py-4 text-sm text-gray-500">A data de envio da proposta</td>
+                </tr>
+                <tr>
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                    <code class="p-1 rounded-md border border-gray-300 bg-gray-50 shadow-sm font-mono text-indigo-600 dark:text-indigo-400">data-validade</code>
+                  </td>
+                  <td class=" px-3 py-4 text-sm text-gray-500">A data de validade da proposta</td>
+                </tr>
+                <tr>
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                    <code class="p-1 rounded-md border border-gray-300 bg-gray-50 shadow-sm font-mono text-indigo-600 dark:text-indigo-400">servico</code>
+                  </td>
+                  <td class=" px-3 py-4 text-sm text-gray-500">Nome do serviço principal preenchido no campo "Serviço que será feito"</td>
+                </tr>
+                <tr>
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                    <code class="p-1 rounded-md border border-gray-300 bg-gray-50 shadow-sm font-mono text-indigo-600 dark:text-indigo-400">preco-total</code>
+                  </td>
+                  <td class=" px-3 py-4 text-sm text-gray-500">O valor do serviço - desconto aplicado</td>
+                </tr>
+                <tr>
+                  <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                    <code class="p-1 rounded-md border border-gray-300 bg-gray-50 shadow-sm font-mono text-indigo-600 dark:text-indigo-400">inclui</code>
+                  </td>
+                  <td class=" px-3 py-4 text-sm text-gray-500">
+                    Renderiza todos os items adicionados no campo "O que é incluido", deve ser usado da seguinte maneira:
+                    <code class="mt-2 p-1 block max-w-max rounded-md border border-gray-300 bg-gray-50 shadow-sm font-mono text-indigo-600 dark:text-indigo-400">
+                      &lt;div id="includeItemsWrapper" data-param="inclui"&gt;&lt;/div&gt;</code>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- ====== Novos parametros ===== -->
+          <div class="w-full block md:hidden" button-mobile-toggle="addingParams">
+            <button class="w-full px-4 flex items-center justify-between py-2 border-b border-gray-300">
+              <div class="flex gap-2 items-center">
+                <span class="rounded-full flex items-center justify-center size-8 bg-black dark:bg-white text-gray-50">6</span>
+                <p class="text-gray-800">Adicionando novos parâmetros</p>
+              </div>
+              <img src="./src/svg/chevron-right.svg" onload="SVGInject(this)" class="rotate-90 stroke-gray-800" alt="">
+            </button>
+          </div>
+          <div class="w-full overflow-hidden md:overflow-visible pb-12 md:py-24 border-b border-gray-400 flex flex-col gap-8 md:gap-24" content-toggle="addingParams" id="addingParams">
+            <div class="child-navigation" id="new-param-creation">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Criando novos parâmetros</h3>
+              <p class="mt-4 text-gray-600 text-lg leading-snug">
+                No formulário há um botão de acrescentar parâmetros. Clique nele para abrir um campo para digitar o nome do parametro, digite o nome, clique em adicionar, e depois preencha o valor que esse novo parâmetro vai receber.
+              </p>
+              <img src="./src/image/new-param-mockup.png" class="mt-8 rounded-md shadow-2xl w-full dark:border dark:border-gray-300" alt="Imagem mockup demostração de download">
+            </div>
+            <div class="child-navigation" id="using-new-param">
+              <h3 class="text-2xl md:text-4xl tracking-tighter leading-normal font-medium text-gray-800">Usando o parametro no Elementor</h3>
+              <p class="mt-4 text-gray-600 text-lg leading-relaxed">
+                Para usar o novo parametro em algum campo do elementor, você deve criar um widget de texto e colocar o valor do parametro em forma de slug no <code class="p-1 rounded-md border border-gray-300 bg-gray-50 shadow-sm font-mono text-indigo-600 dark:text-indigo-400">&lt;span data-param="value"&gt;&lt;/span&gt;</code>
+                <br>
+                Em caso de dúvidas sobre o formato, siga a tabela abaixo:
+              </p>
+              <table class="min-w-full overflow-scroll divide-y divide-gray-300 border border-gray-300 rounded-md mt-4">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Exemplo de nome do parametro</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Valor do parâmetro</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 bg-white dark:bg-black">
+                  <tr>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Prazo de entrega</td>
+                    <td class=" px-3 py-4 text-sm text-gray-500"><code class="p-1 rounded-md border border-gray-300 bg-gray-50 shadow-sm font-mono text-indigo-600 dark:text-indigo-400">&lt;span data-param="prazo-de-entrega"&gt;&lt;/span&gt;</code></td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <div aria-live="assertive" class="pointer-events-none fixed inset-0 flex items-end px-4 py-6  sm:p-6">
+    <div class="flex w-full flex-col items-center space-y-4 sm:items-end ">
+      <div id="notificationForm" class="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-gray-50 shadow-lg border border-gray-300">
+        <div class="p-4">
+          <div class="flex items-start">
+            <div class="flex-shrink-0">
+              <svg class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z" />
+              </svg>
+            </div>
+            <div class="ml-3 w-0 flex-1 pt-0.5">
+              <p class="text-sm font-medium text-gray-900">Deseja restaurar o formulário recem preenchido?</p>
+              <p class="mt-1 text-sm text-gray-500">Selecione o botão para restaurar o formulário.</p>
+              <div class="mt-3 flex space-x-7">
+                <button type="button" id="restoreForm" class="rounded-md bg-gray-50 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Restaurar</button>
+                <button type="button" class="dismissForm rounded-md bg-gray-50 text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Dispensar</button>
+              </div>
+            </div>
+            <div class="ml-4 flex flex-shrink-0">
+              <button type="button" class="dismissForm inline-flex rounded-md bg-gray-100 text-gray-600 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                <span class="sr-only">Close</span>
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+  <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+</body>
+
+</html>
