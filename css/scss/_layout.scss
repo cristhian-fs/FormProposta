@@ -1,0 +1,65 @@
+[button-mobile-toggle] {
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+
+  svg {
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+  }
+}
+
+[button-mobile-toggle].open svg {
+  transform: rotate(-90deg);
+}
+
+.stepSpan {
+  background-color: var(--gray-300);
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+
+[data-sticky].active .stepSpan {
+  background-color: #4f46e5;
+}
+
+[data-sticky] ~ .sub-nav-link {
+  height: 0px;
+  padding: 0px;
+  padding-left: 16px;
+  margin-left: 32px;
+  margin-top: 0px;
+  overflow: hidden;
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid var(--gray-400);
+    background-color: var(--active-color, transparent);
+    transition: 0.7s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+}
+
+[data-sticky].active ~ .sub-nav-link {
+  height: auto;
+  padding: 8px 16px;
+  margin-top: 8px;
+}
+
+.sub-nav-link.is-active {
+  color: var(--gray-950);
+  font-weight: 500;
+}
+
+html.dark [data-sticky].active .stepSpan {
+  background-color: #818cf8;
+}
+[content-toggle],
+.child-navigation {
+  scroll-margin-top: 50px;
+  scroll-padding-top: 50px;
+}
