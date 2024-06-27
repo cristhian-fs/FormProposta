@@ -1,11 +1,4 @@
 {
-<<<<<<< HEAD
-  "dependencies": {
-    "tailwindcss": "^3.4.3"
-  },
-  "devDependencies": {
-    "@tailwindcss/forms": "^0.5.7"
-=======
   "name": "vite-project",
   "private": true,
   "version": "0.0.0",
@@ -29,6 +22,5 @@
     "gsap": "^3.12.5",
     "highlight.js": "^11.9.0",
     "toastify-js": "^1.12.0"
->>>>>>> vite-config
   }
 }
