@@ -22,3 +22,10 @@
     @apply absolute w-max max-w-80 top-0 right-0 z-10 p-1 px-2 text-sm bg-white dark:bg-gray-100  rounded-md border border-gray-200 shadow-lg text-gray-700 dark:text-white;
   }
 }
+.custom-select-container {
+  position: relative;
+}
+
+.custom-select-container select {
+  background-image: none; /* Esconde a seta padrão */
+}
