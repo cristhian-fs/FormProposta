@@ -54,7 +54,9 @@ export function createDynamicInputWithTabs(
     newTab.innerHTML = `
       <p class="text-sm font-medium">${text}</p>
       <button class="deleteServiceBtn">
-        <img src="./src/svg/x.svg" onload="SVGInject(this)" class="size-5 stroke-current" alt="">
+        <svg width="24" height="24" class="stroke-current size-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 7L7 17M7 7L17 17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </button>
     `;
 
