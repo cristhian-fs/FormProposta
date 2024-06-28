@@ -16,7 +16,6 @@ import "highlight.js/styles/github-dark.css";
 document.addEventListener("DOMContentLoaded", () => {
   initServiceInput();
   initDatePicker();
-  initFinalUrl();
   initFormObject();
   handleTheme();
   initMoneyInputs();
@@ -24,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTooltips();
   initSvgInject();
 
+  initFinalUrl();
   SVGInject(document.querySelectorAll("img.inject-svg"));
 
   hljs.highlightAll();

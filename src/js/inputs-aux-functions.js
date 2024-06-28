@@ -64,15 +64,15 @@ export function createDynamicInputWithTabs(
     newTab.querySelector(".deleteServiceBtn").addEventListener("click", () => {
       newTab.remove();
       selectedOptions = selectedOptions.filter((option) => option !== text);
-      updateInput();
+      updateInput(); // Atualizar o input após remover uma aba
     });
 
     servicesTabs.insertBefore(newTab, input);
-    updateInput();
   }
 
   // Inicializa as tabs com dados salvos
   selectedOptions.forEach((item) => createTab(item));
+  updateInput(); // Atualizar o input após inicializar as abas
 
   // Adicionar evento keydown ao input
   input.addEventListener("keydown", (e) => {
@@ -84,6 +84,7 @@ export function createDynamicInputWithTabs(
         createTab(text);
         selectedOptions.push(text);
         input.value = ""; // Limpar o input após adicionar a nova aba
+        updateInput(); // Atualizar o input após adicionar uma nova aba
       }
     }
   });

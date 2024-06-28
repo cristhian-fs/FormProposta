@@ -4,85 +4,103 @@ export function initMoneyInputs() {
   const prefixOptionsText = document.querySelectorAll(".prefixCurrency");
 
   let activeCurrency = "BRL";
-  let prefixCurrencyOptions = {
+  const prefixCurrencyOptions = {
     BRL: "R$",
     USD: "$",
     EUR: "€",
   };
 
-  // Atualiza a moeda ativa e os prefixos de moeda
-  currencyOptions[0].addEventListener("input", (e) => {
-    activeCurrency = e.target.value;
+  function updateCurrencyOptions(selectedCurrency) {
     currencyOptions.forEach((option) => {
-      option.value = e.target.value;
+      option.value = selectedCurrency;
     });
     prefixOptionsText.forEach((text) => {
-      text.textContent = prefixCurrencyOptions[e.target.value];
+      text.textContent = prefixCurrencyOptions[selectedCurrency];
     });
+  }
 
-    currencyInputs.forEach((input) => {
-      if (input.value) {
-        let valorNaoFormatado = input.getAttribute("data-value");
-        input.value = formatarNumeroParaMoeda(parseFloat(valorNaoFormatado));
-      }
-    });
-  });
-
-  currencyInputs.forEach((input, index) => {
-    input.addEventListener("input", (e) => {
-      const valorSemFormatacao = e.target.value.replace(/[^\d]/g, "");
-      const valorNumerico = parseInt(valorSemFormatacao);
-      if (!isNaN(valorNumerico)) {
-        input.value = formatarNumeroParaMoeda(valorNumerico);
-        input.setAttribute("data-value", valorNumerico);
-
-        const totalPrice = document.querySelector("#preco-total");
-        let price = document.querySelector("#preco").getAttribute("data-value");
-        let discount = document
-          .querySelector("#desconto")
-          .getAttribute("data-value");
-
-        if (price && discount) {
-          let totalPriceValue = parseInt(price) - parseInt(discount);
-          totalPrice.setAttribute(
-            "value",
-            formatarNumeroParaMoeda(totalPriceValue)
-          );
-          totalPrice.setAttribute("data-value", totalPriceValue);
-
-          // Disparar evento personalizado
-          const totalPriceEvent = new Event("input", {
-            bubbles: true,
-          });
-          totalPrice.dispatchEvent(totalPriceEvent);
-        } else {
-          totalPrice.setAttribute("value", "");
-          totalPrice.setAttribute("data-value", "");
-        }
-      } else {
-        // Se o valor inserido não for um número válido, limpa o campo
-        input.value = "";
-        input.setAttribute("data-value", "");
-      }
-    });
-  });
-
-  function formatarNumeroParaMoeda(valor) {
-    let numeroFormatado;
-
+  function formatNumberToCurrency(value) {
+    let formattedNumber;
     switch (activeCurrency.toUpperCase()) {
       case "BRL":
-        numeroFormatado = new Intl.NumberFormat("pt-BR").format(valor);
+        formattedNumber = new Intl.NumberFormat("pt-BR").format(value);
         break;
       case "USD":
-        numeroFormatado = new Intl.NumberFormat("en-US").format(valor);
+        formattedNumber = new Intl.NumberFormat("en-US").format(value);
         break;
       case "EUR":
-        numeroFormatado = new Intl.NumberFormat("de-DE").format(valor);
+        formattedNumber = new Intl.NumberFormat("de-DE").format(value);
         break;
       default:
-        numeroFormatado = "Moeda não suportada";
+        formattedNumber = "Unsupported currency";
     }
-    return numeroFormatado;
+    return formattedNumber;
   }
+
+  function updateInputValue(input) {
+    if (input.value) {
+      const unformattedValue = input.getAttribute("data-value");
+      input.value = formatNumberToCurrency(parseFloat(unformattedValue));
+    }
+  }
+
+  function handleCurrencyChange(event) {
+    activeCurrency = event.target.value;
+    updateCurrencyOptions(activeCurrency);
+
+    currencyInputs.forEach((input) => {
+      updateInputValue(input);
+    });
+  }
+
+  function handleInput(event) {
+    const input = event.target;
+    const unformattedValue = input.value.replace(/[^\d]/g, "");
+    const numericValue = parseInt(unformattedValue, 10);
+
+    if (!isNaN(numericValue)) {
+      input.value = formatNumberToCurrency(numericValue);
+      input.setAttribute("data-value", numericValue);
+
+      updateTotalPrice();
+    } else {
+      input.value = "";
+      input.setAttribute("data-value", "");
+    }
+  }
+
+  function updateTotalPrice() {
+    const totalPriceElement = document.querySelector("#preco-total");
+    const price = parseInt(
+      document.querySelector("#preco").getAttribute("data-value"),
+      10
+    );
+    const discount = parseInt(
+      document.querySelector("#desconto").getAttribute("data-value"),
+      10
+    );
+
+    if (!isNaN(price) && !isNaN(discount)) {
+      const totalPriceValue = price - discount;
+      totalPriceElement.setAttribute(
+        "value",
+        formatNumberToCurrency(totalPriceValue)
+      );
+      totalPriceElement.setAttribute("data-value", totalPriceValue);
+
+      const totalPriceEvent = new Event("input", { bubbles: true });
+      totalPriceElement.dispatchEvent(totalPriceEvent);
+    } else {
+      totalPriceElement.setAttribute("value", "");
+      totalPriceElement.setAttribute("data-value", "");
+    }
+  }
+
+  // Adicionar evento para alteração de moeda
+  currencyOptions[0].addEventListener("input", handleCurrencyChange);
+
+  // Adicionar eventos para os inputs de preço e desconto
+  currencyInputs.forEach((input) => {
+    input.addEventListener("input", handleInput);
+  });
 }
