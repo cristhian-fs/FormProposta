@@ -2,7 +2,7 @@ import {
   getNewParams,
   getParamsValue,
   createDynamicInputWithTabs,
-} from "./inputs-aux-functions.js";
+} from "../utils/inputs-aux-functions.js";
 
 import gsap from "gsap";
 

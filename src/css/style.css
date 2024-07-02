@@ -196,6 +196,23 @@ html.dark [data-sticky].active .stepSpan {
   scroll-margin-top: 50px;
 }
 
+#toggleForm {
+  position: relative;
+}
+#toggleForm::before {
+  content: "";
+  position: absolute;
+  left: var(--x-position);
+  top: var(--y-position);
+  width: var(--content-width);
+  height: var(--content-height);
+  border-radius: 6px;
+  border: 1px solid var(--gray-200);
+  background-color: var(--black);
+  transition: 0.7s all cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
 body {
   font-family: "Inter", sans-serif;
 }

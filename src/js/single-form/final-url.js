@@ -1,4 +1,4 @@
-import { getNewParams } from "./inputs-aux-functions.js";
+import { getNewParams } from "../utils/inputs-aux-functions.js";
 
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
