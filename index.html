@@ -201,26 +201,15 @@
             </div>
           </div>
 
-          <div class="w-full hidden flex-col items-start justify-end gap-2 form-new-param">
-            <div class="w-full">
-              <label for="newParam" class="text-sm text-gray-500 font-semibold">Nome do parâmetro</label>
-              <input type="text" name="username" id="newParam" class="w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400  dark:focus-within:ring-purple-200 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Ex.: Prazo para entrega">
-            </div>
-            <div class="flex items-center justify-end w-full gap-2">
-              <button class="flex py-2 px-3 items-center justify-center rounded-lg bg-gray-50 border border-gray-300 text-gray-950 hover:text-red-500 text-base transition-all cancelAddParam">
-                Cancelar
-              </button>
-              <button class="flex py-2 px-3 items-center justify-center rounded-lg bg-purple-700 dark:bg-purple-400 text-white text-base transition-all hover:opacity-80 addParamBtn">
-                Adicionar
-              </button>
-            </div>
-
+          <div class="w-full">
+            <label for="prazo" class="text-sm text-gray-500 font-semibold">Prazo de entrega</label>
+            <input type="text" name="username" id="prazo" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Ex.: 10 dias úteis">
           </div>
 
-          <button class="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-gray-300 bg-gray-50 shadow-sm group hover:shadow-md transition-all new-parameter-button">
-            <p class="text-sm font-semibold text-gray-600 group-hover:text-gray-900   transition-all">Adicionar parâmetro</p>
-            <img src="./src/svg/plus.svg" class="inject-svg size-5 stroke-gray-600 group-hover:stroke-gray-900 dark:group-hover:stroke-white transition-all" alt="">
-          </button>
+          <div class="w-full">
+            <label for="condicao-pagamento" class="text-sm text-gray-500 font-semibold">Condição de pagamento</label>
+            <input type="text" name="username" id="condicao-pagamento" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Ex.: 50% de entrada e 50% na finalização do projeto">
+          </div>
 
           <div class="relative w-full">
             <div class="absolute inset-0 flex items-center" aria-hidden="true">

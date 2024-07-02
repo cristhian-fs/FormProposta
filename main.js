@@ -4,7 +4,6 @@ import { initFinalUrl } from "./src/js/final-url";
 import { initFormObject } from "./src/js/form-object";
 import { handleTheme } from "./src/js/handleTheme";
 import { initMoneyInputs } from "./src/js/money-inputs";
-import { initNewParameters } from "./src/js/new-parameter";
 import { initTooltips } from "./src/js/tooltip";
 import { initSvgInject } from "./src/js/svg-inject.min";
 
@@ -19,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initFormObject();
   handleTheme();
   initMoneyInputs();
-  initNewParameters();
   initTooltips();
   initSvgInject();
 
