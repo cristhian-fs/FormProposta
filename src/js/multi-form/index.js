@@ -1,6 +1,11 @@
 import gsap from "gsap";
 import { DatePicker } from "../utils/date-picker";
 import { initTogglePlansAmount } from "./togglePlansAmount";
+import { ClipboardManager } from "./clipboardManager";
+import { UrlGenerator } from "./final-url";
+import { COPY_BUTTON_SELECTOR, FINAL_URL_SELECTOR } from "./constants.js";
+import { PriceInputsMultiForm } from "./money-inputs.js";
+import { CreatePlans } from "./createPlans.js";
 
 export function initMultiForm() {
   const plansSelector = document.querySelector("#plans-handler");
@@ -23,4 +28,8 @@ export function initMultiForm() {
   const datePicker = new DatePicker("data-envio-multi", "data-validade-multi");
 
   initTogglePlansAmount();
+  PriceInputsMultiForm();
+  const createPlans = new CreatePlans();
+  new UrlGenerator();
+  new ClipboardManager(COPY_BUTTON_SELECTOR, FINAL_URL_SELECTOR);
 }
