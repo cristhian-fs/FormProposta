@@ -22,7 +22,7 @@ export function initTogglePlansAmount() {
     );
     themeToggleParent.style.setProperty(
       "--y-position",
-      `${toggleBtnActiveRect.top - parentRect.top - 1}px`
+      `${toggleBtnActiveRect.top - parentRect.top}px`
     );
   }
 
