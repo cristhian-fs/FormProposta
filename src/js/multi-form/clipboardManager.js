@@ -11,20 +11,21 @@ export class ClipboardManager {
   }
 
   init() {
-    this.copyUrlButton.addEventListener("click", (e) =>
-      this.handleCopyClick(e)
-    );
+    this.copyUrlButton.addEventListener("click", (e) => {
+      this.handleCopyClick(e);
+    });
   }
 
   handleCopyClick(e) {
     e.preventDefault();
-    navigator.clipboard.writeText(this.finalUrlInput.getAttribute("value"));
-    this.showToast();
+    e.stopImmediatePropagation();
+    navigator.clipboard.writeText(this.finalUrlInput.value);
+    this.toastUrl();
   }
 
-  showToast() {
+  toastUrl() {
     Toastify({
-      text: "Proposta copiada para sua area de transferência",
+      text: "URL da proposta copiada para sua area de transferência",
       duration: 3000,
       hideProgressBar: false,
       progress: 3000,
