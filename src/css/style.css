@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import "https://unpkg.com/open-props" layer(design.system);
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -230,6 +231,49 @@ html.dark [data-sticky].active .stepSpan {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
+@layer demo {
+  #plans-parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+  #plans-parent:has(> :nth-child(2):not(.hidden)) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #plans-parent:has(> :nth-child(3):not(.hidden)) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #plans-parent:has(> :nth-child(4):not(.hidden)) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 768px) {
+    #plans-parent {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+@layer demo.transitions {
+  ::view-transition-group(#plans-parent) {
+    animation-timing-function: var(--ease-spring-2);
+    animation-duration: 0.75s;
+  }
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    height: 100%;
+    width: 100%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    ::view-transition-new(*):only-child {
+      animation: var(--animation-slide-in-right) forwards, var(--animation-fade-in) forwards;
+      animation-timing-function: var(--ease-spring-2);
+    }
+    ::view-transition-old(#plans-parent):only-child {
+      animation: var(--animation-slide-out-left) forwards, var(--animation-fade-out) forwards;
+      animation-timing-function: var(--ease-spring-2);
+    }
+  }
+}
 body {
   font-family: "Inter", sans-serif;
 }
