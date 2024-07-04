@@ -8,8 +8,8 @@ import { DatePicker } from "../utils/date-picker";
 export function initSingleServiceForm() {
   initServiceInput();
   const datePicker = new DatePicker("data-envio", "data-validade");
-  // initFormObject();
+  initFormObject();
   initMoneyInputs();
-  initNewParameters();
+  // initNewParameters();
   initFinalUrl();
 }
