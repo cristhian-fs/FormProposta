@@ -209,26 +209,18 @@
               </div>
             </div>
 
-            <div class="w-full hidden flex-col items-start justify-end gap-2 form-new-param">
+            <div class="flex flex-col md:flex-row items-center gap-5 w-full">
               <div class="w-full">
-                <label for="newParam" class="text-sm text-gray-500 font-semibold">Nome do parâmetro</label>
-                <input type="text" name="username" id="newParam" class="w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400  dark:focus-within:ring-purple-200 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Ex.: Prazo para entrega">
-              </div>
-              <div class="flex items-center justify-end w-full gap-2">
-                <button class="flex py-2 px-3 items-center justify-center rounded-lg bg-gray-50 border border-gray-300 text-gray-950 hover:text-red-500 text-base transition-all cancelAddParam">
-                  Cancelar
-                </button>
-                <button class="flex py-2 px-3 items-center justify-center rounded-lg bg-purple-700 dark:bg-purple-400 text-white text-base transition-all hover:opacity-80 addParamBtn">
-                  Adicionar
-                </button>
+                <label for="prazo" class="text-sm text-gray-500 font-semibold">Prazo de entrega</label>
+                <input type="text" name="username" id="prazo" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Ex.: 10 dias úteis">
               </div>
 
+              <div class="w-full">
+                <label for="condicao-pagamento" class="text-sm text-gray-500 font-semibold">Condição de pagamento</label>
+                <input type="text" name="username" id="condicao-pagamento" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Ex.: 50% de entrada e 50% na finalização do projeto">
+              </div>
             </div>
 
-            <button class="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-gray-300 bg-gray-50 shadow-sm group hover:shadow-md transition-all new-parameter-button">
-              <p class="text-sm font-semibold text-gray-600 group-hover:text-gray-900   transition-all">Adicionar parâmetro</p>
-              <img src="./src/svg/plus.svg" class="inject-svg size-5 stroke-gray-600 group-hover:stroke-gray-900 dark:group-hover:stroke-white transition-all" alt="">
-            </button>
 
             <div class="relative w-full">
               <div class="absolute inset-0 flex items-center" aria-hidden="true">
@@ -347,18 +339,20 @@
                 <div class="w-full">
                   <label for="multi-form-domainURL" class="text-sm text-gray-500 font-semibold">URL do seu domínio</label>
                   <div class="mt-2">
-                    <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-200 bg-gray-50 focus-within:ring-[3px] focus-within:ring-gray-400">
+                    <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-200 bg-gray-50 focus-within:ring-[3px] focus-within:ring-gray-400 relative">
+                      <span class="absolute top-0 left-0 w-full h-full bg-black/30 backdrop-blur-md rounded-md pointer-events-none"></span>
                       <span class="flex select-none items-center px-3 py-2 border-r border-gray-300  text-gray-500 text-base">http://</span>
-                      <input type="url" name="multi-form-domainURL" id="multi-form-domainURL" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900  text-gray-[#101828] placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6" placeholder="seudominio.com">
+                      <input type="url" name="multi-form-domainURL" id="multi-form-domainURL" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900  text-gray-[#101828] placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6" placeholder="seudominio.com" autocomplete="off">
                     </div>
                   </div>
                 </div>
                 <div class="w-full">
                   <label for="multi-form-pageSlug" class="text-sm text-gray-500 font-semibold">Slug da sua página</label>
                   <div class="mt-2">
-                    <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-200 bg-gray-50 focus-within:ring-[3px] focus-within:ring-gray-400">
+                    <div class="relative flex rounded-md shadow-sm ring-1 ring-inset ring-gray-200 bg-gray-50 focus-within:ring-[3px] focus-within:ring-gray-400">
+                      <span class="absolute top-0 left-0 w-full h-full bg-black/30 backdrop-blur-md rounded-md pointer-events-none"></span>
                       <span class="flex select-none items-center px-3 py-2 border-r border-gray-300  text-gray-500 text-base">/</span>
-                      <input type="text" name="multi-form-pageSlug" id="multi-form-pageSlug" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900  text-gray-[#101828] placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6" placeholder="proposta-comercial">
+                      <input type="text" name="multi-form-pageSlug" id="multi-form-pageSlug" class="block flex-1 border-0 bg-transparent py-1.5 px-3 text-gray-900  text-gray-[#101828] placeholder:text-gray-500 focus:ring-0 sm:text-sm sm:leading-6" placeholder="proposta-comercial" autocomplete="off">
                     </div>
                   </div>
                 </div>
@@ -406,12 +400,12 @@
             </div>
 
             <!-- PLANOS -->
-            <div id="plans-parent" class="grid grid-cols-1 md:grid-cols-2 items-start justify-center gap-5">
+            <div id="plans-parent" class="gap-5">
               <!-- PLANO 1 -->
-              <div id="plan-1" data-service class="p-5 col-span-1 flex flex-col items-start justify-start gap-5 rounded-2xl border border-gray-300 w-full">
+              <div id="plan-1" data-service class="p-5 flex flex-col items-start justify-start gap-5 rounded-2xl border border-gray-300 w-full">
                 <div class="w-full">
-                  <label for="plan-name-01" class="text-sm text-gray-500 font-semibold">Nome do plano</label>
-                  <input type="text" name="username" data-service-param="plan-name-01" id="plan-name-01" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Nome do primeiro plano">
+                  <label for="plan-1-name" class="text-sm text-gray-500 font-semibold">Nome do plano</label>
+                  <input type="text" name="username" data-service-param="plan-1-name" id="plan-1-name" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Nome do primeiro plano">
                 </div>
                 <div class="w-full">
                   <label for="plan-1-preco" class="block text-sm font-medium leading-6 text-gray-900 ">Valor do plano</label>
@@ -423,7 +417,7 @@
                     <div class="absolute inset-y-0 right-0 flex items-center">
                       <label for="currency" class="sr-only">Currency</label>
                       <div class="custom-select-container h-full">
-                        <select id="currency" name="currency" class="paramValue currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm ">
+                        <select id="currency" name="currency" data-service-param="currency" class="paramValue currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm ">
                           <option value="BRL" selected>BRL</option>
                           <option value="USD">USD</option>
                           <option value="EUR">EUR</option>
@@ -434,9 +428,9 @@
                   </div>
                 </div>
                 <div class="w-full">
-                  <label for="plan-1-service-01" class="text-sm text-gray-500 font-semibold">Serviço 01</label>
+                  <label for="plan-1-service-1" class="text-sm text-gray-500 font-semibold">Serviço 01</label>
                   <div class="w-full">
-                    <input type="text" name="username" data-service-optn data-service-param="plan-1-service-01" id="plan-1-service-01" class="w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço">
+                    <input type="text" name="username" data-service-optn data-service-param="plan-1-service-1" id="plan-1-service-1" class="w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço">
                   </div>
 
                 </div>
@@ -447,10 +441,10 @@
                 </button>
               </div>
               <!-- PLANO 2 -->
-              <div id="plan-2" data-service class="p-5 col-span-1 flex flex-col items-start justify-start gap-5 rounded-2xl border border-gray-300 w-full">
+              <div id="plan-2" data-service class="p-5 flex flex-col items-start justify-start gap-5 rounded-2xl border border-gray-300 w-full">
                 <div class="w-full">
-                  <label for="plan-name-02" class="text-sm text-gray-500 font-semibold">Nome do plano</label>
-                  <input type="text" name="username" data-service-param="plan-name-02" id="plan-name-02" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Nome do primeiro plano">
+                  <label for="plan-1-name" class="text-sm text-gray-500 font-semibold">Nome do plano</label>
+                  <input type="text" name="username" data-service-param="plan-2-name" id="plan-2-name" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Nome do primeiro plano">
                 </div>
                 <div class="w-full">
                   <label for="plan-2-preco" class="block text-sm font-medium leading-6 text-gray-900 ">Valor do plano</label>
@@ -473,9 +467,9 @@
                   </div>
                 </div>
                 <div class="w-full">
-                  <label for="plan-2-service-01" class="text-sm text-gray-500 font-semibold">Serviço 01</label>
+                  <label for="plan-2-service-1" class="text-sm text-gray-500 font-semibold">Serviço 01</label>
                   <div class="w-full">
-                    <input type="text" name="username" data-service-optn data-service-param="plan-2-service-01" id="plan-2-service-01" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço">
+                    <input type="text" name="username" data-service-optn data-service-param="plan-2-service-1" id="plan-2-service-1" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço">
                   </div>
                 </div>
                 <button class="add-service-btn flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-gray-300 bg-gray-50 shadow-sm group hover:shadow-md transition-all">
@@ -484,10 +478,10 @@
                 </button>
               </div>
               <!-- PLANO 3 -->
-              <div id="plan-3" data-service class="hidden p-5 col-span-1 flex-col items-start justify-start gap-5 rounded-2xl border border-gray-300 w-full">
+              <div id="plan-3" data-service class="hidden p-5 flex-col items-start justify-start gap-5 rounded-2xl border border-gray-300 w-full">
                 <div class="w-full">
-                  <label for="plan-name-03" class="text-sm text-gray-500 font-semibold">Nome do plano</label>
-                  <input type="text" name="username" data-service-param="plan-name-02" id="plan-name-02" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Nome do primeiro plano">
+                  <label for="plan-3-name" class="text-sm text-gray-500 font-semibold">Nome do plano</label>
+                  <input type="text" name="username" data-service-param="plan-3-name" id="plan-3-name" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Nome do primeiro plano">
                 </div>
                 <div class="w-full">
                   <label for="plan-3-preco" class="block text-sm font-medium leading-6 text-gray-900 ">Valor do plano</label>
@@ -510,9 +504,9 @@
                   </div>
                 </div>
                 <div class="w-full">
-                  <label for="plan-3-service-01" class="text-sm text-gray-500 font-semibold">Serviço 01</label>
+                  <label for="plan-3-service-1" class="text-sm text-gray-500 font-semibold">Serviço 01</label>
                   <div class="w-full">
-                    <input type="text" name="username" data-service-optn data-service-param="plan-3-service-01" id="plan-3-service-01" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço">
+                    <input type="text" name="username" data-service-optn data-service-param="plan-3-service-1" id="plan-3-service-1" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço">
                   </div>
                 </div>
                 <button class="add-service-btn flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-gray-300 bg-gray-50 shadow-sm group hover:shadow-md transition-all">
@@ -521,10 +515,10 @@
                 </button>
               </div>
               <!-- PLANO 4 -->
-              <div id="plan-4" data-service class="hidden p-5 col-span-1 flex-col items-start justify-start gap-5 rounded-2xl border border-gray-300 w-full">
+              <div id="plan-4" data-service class="hidden p-5 flex-col items-start justify-start gap-5 rounded-2xl border border-gray-300 w-full">
                 <div class="w-full">
-                  <label for="plan-name-04" class="text-sm text-gray-500 font-semibold">Nome do plano</label>
-                  <input type="text" name="username" data-service-param="plan-name-04" id="plan-name-04" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Nome do primeiro plano">
+                  <label for="plan-4-name" class="text-sm text-gray-500 font-semibold">Nome do plano</label>
+                  <input type="text" name="username" data-service-param="plan-4-name" id="plan-4-name" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Nome do primeiro plano">
                 </div>
                 <div class="w-full">
                   <label for="plan-4-preco" class="block text-sm font-medium leading-6 text-gray-900 ">Valor do plano</label>
@@ -547,9 +541,9 @@
                   </div>
                 </div>
                 <div class="w-full">
-                  <label for="plan-4-service-01" class="text-sm text-gray-500 font-semibold">Serviço 01</label>
+                  <label for="plan-4-service-1" class="text-sm text-gray-500 font-semibold">Serviço 01</label>
                   <div class="w-full">
-                    <input type="text" name="username" data-service-optn data-service-param="plan-4-service-01" id="plan-4-service-01" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço">
+                    <input type="text" name="username" data-service-optn data-service-param="plan-4-service-1" id="plan-4-service-1" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço">
                   </div>
                 </div>
                 <button class="add-service-btn flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-gray-300 bg-gray-50 shadow-sm group hover:shadow-md transition-all">
@@ -563,7 +557,8 @@
             <div class="p-5 flex flex-col md:flex-row items-end justify-end gap-5 rounded-2xl border border-gray-300">
               <div class="w-full">
                 <label for="mult-form-url" class="block text-sm font-medium leading-6 text-gray-900 ">URL Final</label>
-                <div class="mt-2">
+                <div class="mt-2 relative">
+                  <span class="absolute top-0 left-0 w-full h-full bg-black/30 backdrop-blur-md rounded-md pointer-events-none"></span>
                   <textarea rows="4" name="mult-form-url" id="mult-form-url" class="block bg-gray-50 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm  ring-1 ring-inset ring-gray-200 placeholder:text-gray-600 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6" disabled></textarea>
                 </div>
               </div>
