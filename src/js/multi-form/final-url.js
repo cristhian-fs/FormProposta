@@ -7,13 +7,19 @@ import {
   FINAL_URL_SELECTOR,
 } from "./constants";
 
+// clipboardManager.js
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
+
 export class UrlGenerator {
   constructor() {
     this.form = document.querySelector("#multi-form");
+    this.copyBtn = document.querySelector(COPY_BUTTON_SELECTOR);
     this.domainUrl = this.form.querySelector(DOMAIN_SELECTOR);
     this.pageSlug = this.form.querySelector(SLUG_SELECTOR);
     this.finalUrlInput = document.querySelector(FINAL_URL_SELECTOR);
     this.accessBtn = document.querySelector(ACCESS_BUTTON_SELECTOR);
+    this.acessLink = document.querySelector(ACCESS_LINK_SELECTOR);
     this.params = [];
     this.plans = this.form.querySelectorAll("[data-service]");
     this.paramInputs = this.form.querySelectorAll("[data-param]");
@@ -25,6 +31,7 @@ export class UrlGenerator {
     this.addEventListeners();
     this.initParamInputs();
     this.updatePlansParams(); // Adicionado para inicializar os parâmetros dos serviços
+    this.inputsObserver();
   }
 
   initParamInputs() {
@@ -68,29 +75,12 @@ export class UrlGenerator {
   updatePlansParams() {
     this.plans.forEach((plan) => {
       let params = plan.querySelectorAll("[data-service-param]");
-      let combinedServices = [];
 
       params.forEach((param) => {
         param.addEventListener("input", (e) =>
           this.handleServiceParamInput(e, param)
         );
-
-        let paramName = param.dataset.serviceParam;
-        let paramValue = encodeURIComponent(param.value);
-
-        if (paramName.includes("servico")) {
-          combinedServices.push(paramValue);
-        } else {
-          this.updateParam(paramName, paramValue);
-        }
       });
-
-      if (combinedServices.length > 0) {
-        this.updateParam(
-          `${plan.dataset.service}-services`,
-          combinedServices.join("%20")
-        );
-      }
     });
   }
 
@@ -103,6 +93,44 @@ export class UrlGenerator {
     }
   }
 
+  inputsObserver() {
+    const observer = new MutationObserver((mutationList) => {
+      mutationList.forEach((mutation) => {
+        if (mutation.type === "childList") {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeName === "DIV") {
+              this.updatePlansParams();
+              this.generateLink();
+            }
+          });
+
+          mutation.removedNodes.forEach((node) => {
+            if (node.nodeName === "DIV") {
+              this.removeParams(node);
+              this.generateLink();
+            }
+          });
+        }
+      });
+    });
+
+    observer.observe(this.form, { childList: true, subtree: true });
+    this.disconnectObserver = () => observer.disconnect();
+  }
+
+  removeParams(node) {
+    const params = node.querySelectorAll("[data-service-param]");
+    params.forEach((param) => {
+      const paramName = param.dataset.serviceParam;
+      this.params = this.params.filter((p) => !p.startsWith(`${paramName}=`));
+    });
+  }
+
+  disconnect() {
+    if (this.disconnectObserver) {
+      this.disconnectObserver();
+    }
+  }
   generateLink() {
     const domainURLValue = this.domainUrl.value;
     const pageSlugValue = this.pageSlug.value;
@@ -111,9 +139,11 @@ export class UrlGenerator {
       const url = `http://${domainURLValue}/${pageSlugValue}?${this.params.join(
         "&"
       )}`;
+
+      this.copyBtn.removeAttribute("disabled");
+      this.accessBtn.removeAttribute("disabled");
       this.finalUrlInput.value = url;
-      this.finalUrlInput.setAttribute("value", url);
-      this.accessBtn.setAttribute("href", url);
+      this.acessLink.setAttribute("href", url);
     } else {
       this.finalUrlInput.setAttribute(
         "placeholder",
