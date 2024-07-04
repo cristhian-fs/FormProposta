@@ -32,7 +32,9 @@ export function initToggleForm() {
   }
 
   themeToggleBtns.forEach((btn) => {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
       themeToggleBtns.forEach((btn) => btn.classList.remove("active"));
 
       this.classList.add("active");
@@ -93,5 +95,6 @@ export function initToggleForm() {
     updateElement();
   }
 
-  handleForm("multi-form");
+  updateElement();
+  handleForm("single-form");
 }
