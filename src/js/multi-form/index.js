@@ -31,5 +31,8 @@ export function initMultiForm() {
   PriceInputsMultiForm();
   const createPlans = new CreatePlans();
   new UrlGenerator();
-  new ClipboardManager(COPY_BUTTON_SELECTOR, FINAL_URL_SELECTOR);
+  const clipboardManager = new ClipboardManager(
+    COPY_BUTTON_SELECTOR,
+    FINAL_URL_SELECTOR
+  );
 }
