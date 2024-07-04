@@ -29,7 +29,7 @@ export function initTogglePlansAmount() {
   updateElement();
 
   togglePlansBtns.forEach((btn) => {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (e) {
       togglePlansBtns.forEach((btn) => btn.classList.remove("active"));
       this.classList.add("active");
       updateElement();
