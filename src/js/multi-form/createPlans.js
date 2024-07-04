@@ -37,39 +37,40 @@ export class CreatePlans {
     for (let i = 1; i <= count; i++) {
       const plan = document.querySelector(`#plan-${i}`);
       if (plan.classList.contains("hidden")) {
-        plan.classList.remove("hidden");
-
-        gsap.set(plan, { opacity: 0, y: 100 });
-        plan.classList.add("flex");
-        gsap.to(plan, {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: "power2.out",
-          delay: i * 0.1,
-        });
+        plan.style.viewTransitionName = `plan-${i}`;
+        if (document.startViewTransition) {
+          document.startViewTransition(() => {
+            plan.classList.remove("hidden");
+            plan.classList.add("flex");
+            this.updatePlanCount();
+          });
+        } else {
+          plan.classList.remove("hidden");
+          plan.classList.add("flex");
+          this.updatePlanCount();
+        }
       }
     }
-    this.updatePlanCount();
   }
 
   hidePlans(count) {
     const plans = document.querySelectorAll("[data-service]");
     plans.forEach((plan, index) => {
       if (index >= count) {
-        plan.classList.remove("flex");
-        gsap.to(plan, {
-          opacity: 0,
-          y: 100,
-          duration: 0.5,
-          ease: "power2.out",
-          onComplete: () => {
+        plan.style.viewTransitionName = `plan-${index + 1}`;
+        if (document.startViewTransition) {
+          document.startViewTransition(() => {
+            plan.classList.remove("flex");
             plan.classList.add("hidden");
-          },
-        });
+            this.updatePlanCount();
+          });
+        } else {
+          plan.classList.remove("flex");
+          plan.classList.add("hidden");
+          this.updatePlanCount();
+        }
       }
     });
-    this.updatePlanCount();
   }
 
   updatePlanCount() {
@@ -77,63 +78,6 @@ export class CreatePlans {
       "[data-service]:not(.hidden)"
     ).length;
   }
-
-  // createPlanDiv(planId) {
-  //   const planDiv = document.createElement("div");
-  //   planDiv.classList.add(
-  //     "p-5",
-  //     "col-span-1",
-  //     "flex",
-  //     "flex-col",
-  //     "items-start",
-  //     "justify-start",
-  //     "gap-5",
-  //     "rounded-2xl",
-  //     "border",
-  //     "border-gray-300",
-  //     "w-full"
-  //   );
-  //   planDiv.setAttribute("id", `service${planId}`);
-  //   planDiv.setAttribute("data-service", "");
-
-  //   planDiv.innerHTML = `
-  //     <div class="w-full">
-  //       <label for="plan-name-${planId}" class="text-sm text-gray-500 font-semibold">Nome do plano</label>
-  //       <input type="text" name="username" data-service-param="plan-name-${planId}" id="plan-name-${planId}" class="paramValue w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Nome do primeiro plano">
-  //     </div>
-  //     <div class="w-full">
-  //       <label for="plan-${planId}-preco" class="block text-sm font-medium leading-6 text-gray-900 ">Valor do plano</label>
-  //       <div class="relative mt-2 rounded-md shadow-sm w-full">
-  //         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-  //           <span class="text-gray-500 sm:text-sm prefixCurrency">R$</span>
-  //         </div>
-  //         <input type="text" name="plan-${planId}-preco" data-price data-service-param="plan-${planId}-preco" id="plan-${planId}-preco" class="paramValue bg-gray-50 block w-full rounded-md border-0 py-2 pl-10 pr-20 text-gray-900 ring-1 ring-inset ring-gray-200 placeholder:text-gray-600 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm sm:leading-6" placeholder="00,00" data-value>
-  //         <div class="absolute inset-y-0 right-0 flex items-center">
-  //           <label for="currency" class="sr-only">Currency</label>
-  //           <div class="custom-select-container h-full">
-  //             <select id="currency" name="currency" class="paramValue currencyInput h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-gray-400 sm:text-sm ">
-  //               <option value="BRL" selected>BRL</option>
-  //               <option value="USD">USD</option>
-  //               <option value="EUR">EUR</option>
-  //             </select>
-  //             <img src="./src/svg/chevron-right.svg" class="inject-svg size-5 rotate-90 stroke-gray-500 absolute top-1/2 -translate-y-1/2 right-2" alt="">
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //     <div class="w-full">
-  //       <label for="plan-${planId}-service-01" class="text-sm text-gray-500 font-semibold">Serviço 01</label>
-  //       <input type="text" name="username" data-service-optn data-service-param="plan-${planId}-service-01" id="plan-${planId}-service-01" class="w-full block flex-1 mt-1.5 bg-gray-50 py-2 pl-3 border-0 ring-1 ring-inset ring-gray-200 text-gray-900  placeholder:text-gray-500 focus:ring-[3px] focus:ring-gray-400 sm:text-sm sm:leading-6 rounded-lg shadow-sm" placeholder="Adicione o nome do serviço">
-  //     </div>
-
-  //     <button type="button" class="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-gray-300 bg-gray-50 shadow-sm group hover:shadow-md transition-all add-service-btn">
-  //       <p class="text-sm font-semibold text-gray-600 group-hover:text-gray-900 transition-all">Adicionar serviço</p>
-  //       <img src="./src/svg/plus.svg" class="inject-svg size-5 stroke-gray-600 group-hover:stroke-gray-900 dark:group-hover:stroke-white transition-all" alt="">
-  //     </button>
-  //   `;
-
-  //   return planDiv;
-  // }
 
   addService(planDiv) {
     const serviceCount =
