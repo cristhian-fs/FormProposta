@@ -1,7 +1,8 @@
 export function initMoneyInputs() {
-  const currencyInputs = document.querySelectorAll("#preco, #desconto");
-  const currencyOptions = document.querySelectorAll(".currencyInput");
-  const prefixOptionsText = document.querySelectorAll(".prefixCurrency");
+  const form = document.querySelector("#single-form");
+  const currencyInputs = form.querySelectorAll("#preco, #desconto");
+  const currencyOptions = form.querySelectorAll(".currencyInput");
+  const prefixOptionsText = form.querySelectorAll(".prefixCurrency");
 
   let activeCurrency = "BRL";
   const prefixCurrencyOptions = {
