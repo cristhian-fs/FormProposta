@@ -97,3 +97,13 @@ html.dark [data-sticky].active .stepSpan {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
 }
+
+html.dark #toggleForm::before {
+  border: 1px solid transparent;
+  background-color: var(--gray-200);
+}
+
+html.dark #plans-handler::before {
+  border: 1px solid transparent;
+  background-color: var(--gray-200);
+}
