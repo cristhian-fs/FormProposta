@@ -10,12 +10,17 @@ import { CreatePlans } from "./createPlans.js";
 export function initMultiForm() {
   const plansSelector = document.querySelector("#plans-handler");
 
-  gsap.to(plansSelector, {
-    x: 0,
-    filter: "blur(0px)",
-    opacity: 1,
-    duration: 0.5,
-    ease: "expo.out",
+  gsap.set(plansSelector, {
+    display: "block",
+    onComplete: () => {
+      gsap.to(plansSelector, {
+        x: 0,
+        filter: "blur(0px)",
+        opacity: 1,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    },
   });
 
   gsap.set("#notificationForm", {
