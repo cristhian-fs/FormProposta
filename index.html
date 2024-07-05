@@ -61,16 +61,16 @@
             <div class="flex flex-col items-start justify-start gap-3">
               <img src="./src/svg/headphone-fill.svg" class="inject-svg size-6 dark:fill-purple-400 fill-purple-700" alt="">
               <p class="text-lg text-black dark:text-white font-medium">Suporte:</p>
-              <p class="text-base text-gray-600">Se tiver dúvidas, envie um e-mail para <a href="mailto:contato@becaetano.com.br" class="underline text-gray-800">contato@becaetano.com.br </a>ou chame no grupo do Telegram.</p>
+              <p class="text-base text-gray-600">Se tiver dúvidas, envie um e-mail para <a href="mailto:contato@becaetano.com.br" class="underline text-gray-800">contato@becaetano.com.br</a> ou chame no grupo do Telegram.</p>
             </div>
           </div>
         </div>
         <div class="w-full md:min-w-96 p-2 flex flex-col items-start justify-center bg-gray-50 border-gray-100 rounded-lg">
-          <div class="flex items-center p-4 justify-start gap-8">
+          <div class="flex flex-col md:flex-row items-start md:items-center p-4 justify-start gap-8">
             <div>
               <p class="text-sm text-gray-500 font-semibold">Selecione o tipo de proposta que deseja</p>
-              <div class="mt-2 max-w-fit p-1 bg-gray-100 border rounded-md border-gray-200 flex items-center gap-1" id="toggleForm">
-                <button data-form="single-form" class="toggleFormBtn active relative z-20 p-2 rounded-md text-sm text-gray-600 hover:text-black dark:hover:text-white transition-all">
+              <div class="mt-2 max-w-fit p-1 bg-white dark:bg-gray-50 border rounded-md border-gray-200 flex items-center gap-1" id="toggleForm">
+                <button data-form="single-form" class="toggleFormBtn relative z-20 p-2 rounded-md text-sm text-gray-600 hover:text-black dark:hover:text-white transition-all">
                   Proposta simples
                 </button>
                 <button data-form="multi-form" class="toggleFormBtn p-2 relative z-20 rounded-md text-sm text-gray-600 hover:text-black dark:hover:text-white transition-all">
@@ -80,7 +80,7 @@
             </div>
             <div id="plans-handler">
               <p class="text-sm text-gray-500 font-semibold">Selecione a quantidade de planos</p>
-              <div class="mt-2 max-w-fit p-1 bg-gray-100 border rounded-md border-gray-200 flex items-center gap-1">
+              <div class="mt-2 max-w-fit p-1 bg-white dark:bg-gray-50 border rounded-md border-gray-200 flex items-center gap-1">
                 <button data-plans="2" class="togglePlanBtn active relative z-20 p-2 rounded-md text-sm text-gray-600 hover:text-black dark:hover:text-white transition-all">
                   2 planos
                 </button>
@@ -95,7 +95,7 @@
           </div>
 
           <div id="single-form" class="p-4 w-full flex flex-col items-center justify-start gap-5">
-            <div class="flex items-center justify-start w-full gap-8">
+            <div class="flex flex-col md:flex-row items-center justify-start w-full gap-8">
               <div class="w-full">
                 <div class="flex items-center gap-2">
                   <label for="nome-cliente" class="text-sm text-gray-500 font-semibold">Nome do cliente</label>
@@ -189,7 +189,7 @@
 
             <div class="w-full flex flex-col items-center justify-center gap-5" id="params-field">
               <div class="w-full">
-                <label for="inclui" class="text-sm text-gray-500 font-semibold">O que é incluido?</label>
+                <label for="inclui" class="text-sm text-gray-500 font-semibold">O que está incluso?</label>
                 <div class="mt-2 relative">
                   <div class="flex flex-wrap gap-1 rounded-md shadow-sm ring-1 ring-inset ring-gray-200 bg-gray-50 focus-within:ring-[3px] px-3 py-1.5 focus-within:ring-gray-400" id="includesTabs">
                     <!-- <div class="inline-flex flex-wrap gap-1" id=""></div> -->
@@ -314,13 +314,11 @@
               </button>
             </a>
           </div>
-
-
           <div id="multi-form" class="w-full flex flex-col gap-4">
 
             <!-- INICIAIS -->
             <div class="p-5 flex flex-col items-center justify-start gap-5 rounded-2xl border border-gray-300">
-              <div class="flex items-center justify-start w-full gap-8">
+              <div class="flex flex-col md:flex-row items-start md:items-center justify-start w-full gap-8">
                 <div class="w-full">
                   <div class="flex items-center gap-2">
                     <label for="nome-cliente" class="text-sm text-gray-500 font-semibold">Nome do cliente</label>
@@ -360,7 +358,7 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
                 <div class="col-span-1">
                   <div class="flex items-center gap-2">
-                    <label for="data-envio" class="text-sm text-gray-500 font-semibold">Data de envio</label>
+                    <label for="data-envio-multi" class="text-sm text-gray-500 font-semibold">Data de envio</label>
                     <div class="relative">
                       <button class="tooltipBtn p-1 text-gray-400 hover:text-gray-600 ">
                         <img src="./src/svg/question-tooltip.svg" class="size-4 transition-all inject-svg" alt="">
@@ -379,7 +377,7 @@
                 </div>
                 <div class="col-span-1">
                   <div class="flex items-center gap-2">
-                    <label for="data-validade" class="text-sm text-gray-500 font-semibold">Data de validade</label>
+                    <label for="data-validade-multi" class="text-sm text-gray-500 font-semibold">Data de validade</label>
                     <div class="relative">
                       <button class="tooltipBtn p-1 text-gray-400 hover:text-gray-600 ">
                         <img src="./src/svg/question-tooltip.svg" class="inject-svg size-4 transition-all " alt="">
