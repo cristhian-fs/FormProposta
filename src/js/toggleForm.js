@@ -8,6 +8,18 @@ export function initToggleForm() {
   let themeToggleParent = document.querySelector("#toggleForm");
 
   function updateElement() {
+    const activeForm = localStorage.getItem("activeForm");
+
+    const toggleBtns = document.querySelectorAll(".toggleFormBtn");
+
+    toggleBtns.forEach((btn) => {
+      if (btn.dataset.form === activeForm) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+
     let toggleBtnActive = document.querySelector(".toggleFormBtn.active");
     let toggleBtnActiveRect = toggleBtnActive.getBoundingClientRect();
     let parentRect = themeToggleParent.getBoundingClientRect();
@@ -35,10 +47,12 @@ export function initToggleForm() {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
+      e.stopPropagation();
       themeToggleBtns.forEach((btn) => btn.classList.remove("active"));
 
       this.classList.add("active");
       handleForm(this.dataset.form);
+      localStorage.setItem("activeForm", this.dataset.form);
       updateElement();
     });
   });
@@ -51,9 +65,11 @@ export function initToggleForm() {
     opacity: 0,
     duration: 0.5,
     ease: "expo.out",
+    display: "none",
   });
 
   function handleForm(id) {
+    const scrollPosition = window.scrollY;
     const forms = document.querySelectorAll("#single-form, #multi-form");
     forms.forEach((form) => {
       gsap.set(form, {
@@ -72,6 +88,11 @@ export function initToggleForm() {
           opacity: 0,
           duration: 0.5,
           ease: "expo.out",
+          onComplete: () => {
+            gsap.set("#plans-handler", {
+              display: "none",
+            });
+          },
         });
       } else {
         initMultiForm();
@@ -93,8 +114,11 @@ export function initToggleForm() {
       }
     });
     updateElement();
+    window.scrollTo(0, scrollPosition);
   }
 
   updateElement();
-  handleForm("single-form");
+
+  const activeForm = localStorage.getItem("activeForm");
+  handleForm(activeForm || "single-form");
 }
