@@ -1,4 +1,4 @@
-import { getNewParams } from "./inputs-aux-functions.js";
+import { getNewParams } from "../utils/inputs-aux-functions.js";
 
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
@@ -33,7 +33,7 @@ export function initFinalUrl() {
     e.preventDefault();
     navigator.clipboard.writeText(finalUrlInput.getAttribute("value"));
     Toastify({
-      text: "Proposta copiada para sua area de transferência",
+      text: "URL da proposta copiada para sua area de transferência",
       duration: 3000,
       hideProgressBar: false,
       progress: 3000,

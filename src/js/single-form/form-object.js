@@ -2,7 +2,7 @@ import {
   getNewParams,
   getParamsValue,
   createDynamicInputWithTabs,
-} from "./inputs-aux-functions.js";
+} from "../utils/inputs-aux-functions.js";
 
 import gsap from "gsap";
 
@@ -91,18 +91,19 @@ export function initFormObject() {
   }
 
   function showNotification(e) {
-    const sectionForm = document.querySelector("#form-section");
-    if (sectionForm) {
-      const { top } = sectionForm.getBoundingClientRect();
-      let savedForm = localStorage.getItem("formData");
-      if (top < 200 && savedForm) {
-        gsap.to(notification, {
-          opacity: 1,
-          translateX: `00%`,
-          duration: 0.5,
-          ease: "expo.out",
-        });
-      }
+    let savedForm = localStorage.getItem("formData");
+    const activeSingleForm = document.querySelector(
+      "#single-form:not(.hidden)"
+    );
+    if (savedForm && activeSingleForm) {
+      gsap.to(notification, {
+        opacity: 1,
+        translateX: `00%`,
+        duration: 0.5,
+        ease: "expo.out",
+      });
+    } else {
+      closeNotification();
     }
   }
 
