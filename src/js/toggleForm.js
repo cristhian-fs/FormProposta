@@ -8,7 +8,7 @@ export function initToggleForm() {
   let themeToggleParent = document.querySelector("#toggleForm");
 
   function updateElement() {
-    const activeForm = localStorage.getItem("activeForm");
+    let activeForm = localStorage.getItem("activeForm");
 
     const toggleBtns = document.querySelectorAll(".toggleFormBtn");
 
@@ -19,6 +19,10 @@ export function initToggleForm() {
         btn.classList.remove("active");
       }
     });
+
+    if (!activeForm) {
+      toggleBtns[0].classList.add("active");
+    }
 
     let toggleBtnActive = document.querySelector(".toggleFormBtn.active");
     let toggleBtnActiveRect = toggleBtnActive.getBoundingClientRect();
